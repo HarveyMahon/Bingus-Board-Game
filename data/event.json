@@ -1,19 +1,18 @@
 {
   "schemaVersion": 1,
-  "sample": true,
-  "lastUpdated": "2026-09-26T10:00:00.000Z",
-  "live": true,
+  "lastUpdated": "2026-09-26T11:57:07.391Z",
+  "live": false,
   "event": {
     "name": "Bingus Board Game",
     "description": "A two-week clan tile race. Teams of 5–6 work through the board in order — each tile unlocks the next. First to finish wins.",
-    "start": "2026-09-19T17:00:00.000Z",
-    "end": "2026-10-03T17:00:00.000Z",
+    "start": "2026-09-26T23:00:00.000Z",
+    "end": "2026-10-20T23:00:00.000Z",
     "timezone": "Europe/London",
-    "keyword": "BINGUS",
+    "keyword": null,
     "host": {
       "name": "Adamolf",
-      "discord": "Adamolf#7451",
-      "discordUserId": ""
+      "discord": "Adamolf",
+      "discordUserId": "Adamolf"
     },
     "discordInvite": "",
     "submission": "Send your screenshot(s) to the host in a Discord DM. Include your team name, the tile number and the RSN of whoever got it. The event keyword must be visible in the chatbox of every screenshot.",
@@ -21,642 +20,99 @@
       "Tiles must be completed in order. Only progress made after the event starts, and while your team is on that tile, counts.",
       "Every screenshot must show the event keyword typed in the chatbox.",
       "Submit proof by Discord DM to the host. The host’s decision is final.",
-      "Only registered team members’ progress counts. Ironmen may take part.",
+      "Only registered team members’ progress counts.",
       "First team to complete the final tile wins. If nobody finishes, the team furthest along wins; ties go to whoever reached that tile first."
     ],
     "showIcons": true
   },
   "totalTiles": 25,
-  "tiles": [
-    {
-      "id": "t01",
-      "title": "Team photo",
-      "description": "Every team member in one screenshot, same world, standing together at a location of your choice.",
-      "tier": 1,
-      "category": "other",
-      "quantity": 1,
-      "items": null,
-      "format": null,
-      "proof": "Screenshot showing the completion, with the event keyword visible.",
-      "requirements": "",
-      "icon": "Camera"
-    },
-    {
-      "id": "t02",
-      "title": "Dragon defender",
-      "description": "Obtain a Dragon defender in the Warriors’ Guild.",
-      "tier": 1,
-      "category": "boss",
-      "quantity": 1,
-      "items": null,
-      "format": null,
-      "proof": "Screenshot of the drop (loot message or item on the ground) with the event keyword visible in the chatbox.",
-      "requirements": "130 combined Attack + Strength",
-      "icon": "Dragon defender"
-    },
-    {
-      "id": "t03",
-      "title": "Complete 10 Easy clue scrolls",
-      "description": "Team total of 10 easy clue scrolls completed during the event.",
-      "tier": 2,
-      "category": "clues",
-      "quantity": 10,
-      "items": null,
-      "format": null,
-      "proof": "Screenshot of each casket reward / completion message with the event keyword visible.",
-      "requirements": "",
-      "icon": "Reward casket (easy)"
-    },
-    {
-      "id": "t04",
-      "title": "Gain 750K Thieving XP",
-      "description": "Team total of 750K Thieving XP gained during the event.",
-      "tier": 2,
-      "category": "xp",
-      "quantity": 750000,
-      "items": null,
-      "format": "xp",
-      "proof": "Before and after screenshots of each contributor’s XP (skill tab or XP tracker) with the event keyword visible.",
-      "requirements": "",
-      "icon": "Thieving icon"
-    },
-    {
-      "id": "t05",
-      "title": "Any Barrows item",
-      "description": "Obtain any Barrows equipment piece from the Barrows chest.",
-      "tier": 2,
-      "category": "boss",
-      "quantity": 1,
-      "items": null,
-      "format": null,
-      "proof": "Screenshot of the drop (loot message or item on the ground) with the event keyword visible in the chatbox.",
-      "requirements": "",
-      "icon": "Dharok's greataxe"
-    },
-    {
-      "id": "t06",
-      "title": "Complete 20 Tempoross games",
-      "description": "Team total of 20 Tempoross games (reward permits).",
-      "tier": 2,
-      "category": "minigame",
-      "quantity": 20,
-      "items": null,
-      "format": null,
-      "proof": "Screenshot of the reward or completion screen with the event keyword visible.",
-      "requirements": "35 Fishing",
-      "icon": "Tackle box"
-    },
-    {
-      "id": "t07",
-      "title": "Full Angler outfit",
-      "description": "Obtain the Angler hat, top, waders and boots.",
-      "tier": 2,
-      "category": "minigame",
-      "quantity": 4,
-      "items": [
-        "Angler hat",
-        "Angler top",
-        "Angler waders",
-        "Angler boots"
-      ],
-      "format": null,
-      "proof": "Screenshot of the reward or completion screen with the event keyword visible.",
-      "requirements": "15 Fishing",
-      "icon": "Angler top"
-    },
-    {
-      "id": "t08",
-      "title": "Unsired",
-      "description": "Obtain an Unsired from the Abyssal Sire.",
-      "tier": 3,
-      "category": "boss",
-      "quantity": 1,
-      "items": null,
-      "format": null,
-      "proof": "Screenshot of the drop (loot message or item on the ground) with the event keyword visible in the chatbox.",
-      "requirements": "85 Slayer",
-      "icon": "Unsired"
-    },
-    {
-      "id": "t09",
-      "title": "Log 15 new collection log slots",
-      "description": "Team total of 15 new collection log slots (new to that player).",
-      "tier": 3,
-      "category": "clog",
-      "quantity": 15,
-      "items": null,
-      "format": null,
-      "proof": "Before and after collection log screenshots with the event keyword visible.",
-      "requirements": "",
-      "icon": "Collection log"
-    },
-    {
-      "id": "t10",
-      "title": "Any Zulrah unique",
-      "description": "Tanzanite fang, Magic fang, Serpentine visage, Uncut onyx, a mutagen or Jar of swamp.",
-      "tier": 3,
-      "category": "boss",
-      "quantity": 1,
-      "items": null,
-      "format": null,
-      "proof": "Screenshot of the drop (loot message or item on the ground) with the event keyword visible in the chatbox.",
-      "requirements": "Regicide",
-      "icon": "Tanzanite fang"
-    }
-  ],
+  "tiles": [],
   "teams": [
     {
-      "id": "team-brigade",
-      "name": "The Bingus Brigade",
+      "id": "team-muibz6k40ktic",
+      "name": "Donny's Demons",
       "colour": "#e0a126",
       "members": [
         {
-          "rsn": "Bingus Prime"
-        },
-        {
-          "rsn": "Iron Tofu"
-        },
-        {
-          "rsn": "Zulrah Enjoyer"
-        },
-        {
-          "rsn": "Mossy Keith"
-        },
-        {
-          "rsn": "Sir Clicks"
+          "rsn": "Donny"
         }
       ],
-      "currentTile": 9,
+      "currentTile": 0,
       "progress": {
         "count": 0,
         "items": []
       },
-      "completions": [
-        {
-          "tileIndex": 0,
-          "tileId": "t01",
-          "at": "2026-09-19T18:30:00.000Z",
-          "by": "Iron Tofu"
-        },
-        {
-          "tileIndex": 1,
-          "tileId": "t02",
-          "at": "2026-09-19T21:30:00.000Z",
-          "by": "Sir Clicks"
-        },
-        {
-          "tileIndex": 2,
-          "tileId": "t03",
-          "at": "2026-09-20T02:30:00.000Z",
-          "by": "Zulrah Enjoyer"
-        },
-        {
-          "tileIndex": 3,
-          "tileId": "t04",
-          "at": "2026-09-20T08:30:00.000Z",
-          "by": "Bingus Prime"
-        },
-        {
-          "tileIndex": 4,
-          "tileId": "t05",
-          "at": "2026-09-20T17:30:00.000Z",
-          "by": "Mossy Keith"
-        },
-        {
-          "tileIndex": 5,
-          "tileId": "t06",
-          "at": "2026-09-20T22:30:00.000Z",
-          "by": "Iron Tofu"
-        },
-        {
-          "tileIndex": 6,
-          "tileId": "t07",
-          "at": "2026-09-21T05:30:00.000Z",
-          "by": "Sir Clicks"
-        },
-        {
-          "tileIndex": 7,
-          "tileId": "t08",
-          "at": "2026-09-21T21:30:00.000Z",
-          "by": "Zulrah Enjoyer"
-        },
-        {
-          "tileIndex": 8,
-          "tileId": "t09",
-          "at": "2026-09-22T17:30:00.000Z",
-          "by": "Bingus Prime"
-        }
-      ],
+      "completions": [],
       "finishedAt": null
     },
     {
-      "id": "team-dads",
-      "name": "Dharok's Dads",
+      "id": "team-muibzd8j354pt",
+      "name": "Adam's Aviansie's",
       "colour": "#3f8fdc",
       "members": [
         {
-          "rsn": "Dad Str"
-        },
-        {
-          "rsn": "Low HP Larry"
-        },
-        {
-          "rsn": "Veng Pls"
-        },
-        {
-          "rsn": "Guthan Gary"
-        },
-        {
-          "rsn": "Barrows Bob"
-        },
-        {
-          "rsn": "Rune Rita"
+          "rsn": "Adam"
         }
       ],
-      "currentTile": 8,
+      "currentTile": 0,
       "progress": {
-        "count": 9,
+        "count": 0,
         "items": []
       },
-      "completions": [
-        {
-          "tileIndex": 0,
-          "tileId": "t01",
-          "at": "2026-09-19T19:00:00.000Z",
-          "by": "Low HP Larry"
-        },
-        {
-          "tileIndex": 1,
-          "tileId": "t02",
-          "at": "2026-09-19T23:00:00.000Z",
-          "by": "Barrows Bob"
-        },
-        {
-          "tileIndex": 2,
-          "tileId": "t03",
-          "at": "2026-09-20T05:00:00.000Z",
-          "by": "Low HP Larry"
-        },
-        {
-          "tileIndex": 3,
-          "tileId": "t04",
-          "at": "2026-09-20T12:00:00.000Z",
-          "by": "Barrows Bob"
-        },
-        {
-          "tileIndex": 4,
-          "tileId": "t05",
-          "at": "2026-09-21T00:00:00.000Z",
-          "by": "Low HP Larry"
-        },
-        {
-          "tileIndex": 5,
-          "tileId": "t06",
-          "at": "2026-09-21T06:00:00.000Z",
-          "by": "Barrows Bob"
-        },
-        {
-          "tileIndex": 6,
-          "tileId": "t07",
-          "at": "2026-09-21T16:00:00.000Z",
-          "by": "Low HP Larry"
-        },
-        {
-          "tileIndex": 7,
-          "tileId": "t08",
-          "at": "2026-09-22T12:00:00.000Z",
-          "by": "Barrows Bob"
-        }
-      ],
+      "completions": [],
       "finishedAt": null
     },
     {
-      "id": "team-seers",
-      "name": "Seers Village People",
+      "id": "team-muibzot68dosp",
+      "name": "Kiro's Kool Klub",
       "colour": "#a35ee0",
       "members": [
         {
-          "rsn": "Knight Waves"
-        },
-        {
-          "rsn": "Magic Longbow"
-        },
-        {
-          "rsn": "Seers Rooftop"
-        },
-        {
-          "rsn": "Kandarin Kid"
-        },
-        {
-          "rsn": "Flax Picker"
+          "rsn": "Kiro"
         }
       ],
-      "currentTile": 6,
-      "progress": {
-        "count": 0,
-        "items": [
-          "Angler hat",
-          "Angler boots"
-        ]
-      },
-      "completions": [
-        {
-          "tileIndex": 0,
-          "tileId": "t01",
-          "at": "2026-09-19T20:00:00.000Z",
-          "by": "Magic Longbow"
-        },
-        {
-          "tileIndex": 1,
-          "tileId": "t02",
-          "at": "2026-09-20T01:00:00.000Z",
-          "by": "Flax Picker"
-        },
-        {
-          "tileIndex": 2,
-          "tileId": "t03",
-          "at": "2026-09-20T11:00:00.000Z",
-          "by": "Seers Rooftop"
-        },
-        {
-          "tileIndex": 3,
-          "tileId": "t04",
-          "at": "2026-09-20T20:00:00.000Z",
-          "by": "Knight Waves"
-        },
-        {
-          "tileIndex": 4,
-          "tileId": "t05",
-          "at": "2026-09-21T18:00:00.000Z",
-          "by": "Kandarin Kid"
-        },
-        {
-          "tileIndex": 5,
-          "tileId": "t06",
-          "at": "2026-09-22T08:00:00.000Z",
-          "by": "Magic Longbow"
-        }
-      ],
-      "finishedAt": null
-    },
-    {
-      "id": "team-goblin",
-      "name": "Goblin Mode",
-      "colour": "#3fbf5a",
-      "members": [
-        {
-          "rsn": "Goblin Chief"
-        },
-        {
-          "rsn": "Bronze Dagger"
-        },
-        {
-          "rsn": "Cabbage Cape"
-        },
-        {
-          "rsn": "Lumby Legend"
-        },
-        {
-          "rsn": "Draynor Dan"
-        }
-      ],
-      "currentTile": 4,
+      "currentTile": 0,
       "progress": {
         "count": 0,
         "items": []
       },
-      "completions": [
+      "completions": [],
+      "finishedAt": null
+    },
+    {
+      "id": "team-muic003tdbd1m",
+      "name": "Dan's Donkey's",
+      "colour": "#3fbf5a",
+      "members": [
         {
-          "tileIndex": 0,
-          "tileId": "t01",
-          "at": "2026-09-19T21:00:00.000Z",
-          "by": "Bronze Dagger"
-        },
-        {
-          "tileIndex": 1,
-          "tileId": "t02",
-          "at": "2026-09-20T06:00:00.000Z",
-          "by": "Draynor Dan"
-        },
-        {
-          "tileIndex": 2,
-          "tileId": "t03",
-          "at": "2026-09-20T20:00:00.000Z",
-          "by": "Cabbage Cape"
-        },
-        {
-          "tileIndex": 3,
-          "tileId": "t04",
-          "at": "2026-09-21T16:00:00.000Z",
-          "by": "Goblin Chief"
+          "rsn": "Dan"
         }
       ],
+      "currentTile": 0,
+      "progress": {
+        "count": 0,
+        "items": []
+      },
+      "completions": [],
+      "finishedAt": null
+    },
+    {
+      "id": "team-muic0toalceuz",
+      "name": "Exon's Extremists",
+      "colour": "#e0513c",
+      "members": [
+        {
+          "rsn": "Exon"
+        }
+      ],
+      "currentTile": 0,
+      "progress": {
+        "count": 0,
+        "items": []
+      },
+      "completions": [],
       "finishedAt": null
     }
   ],
-  "activity": [
-    {
-      "at": "2026-09-26T09:15:00.000Z",
-      "teamId": "team-seers",
-      "type": "progress",
-      "tileIndex": 6,
-      "text": "Seers Village People: got Angler hat, Angler boots (2/4) on Full Angler outfit"
-    },
-    {
-      "at": "2026-09-26T08:40:00.000Z",
-      "teamId": "team-dads",
-      "type": "progress",
-      "tileIndex": 8,
-      "text": "Dharok's Dads: 9/15 on Log 15 new collection log slots"
-    },
-    {
-      "at": "2026-09-22T17:30:00.000Z",
-      "teamId": "team-brigade",
-      "type": "complete",
-      "tileIndex": 8,
-      "text": "The Bingus Brigade completed tile 9: Log 15 new collection log slots (Bingus Prime)"
-    },
-    {
-      "at": "2026-09-22T12:00:00.000Z",
-      "teamId": "team-dads",
-      "type": "complete",
-      "tileIndex": 7,
-      "text": "Dharok's Dads completed tile 8: Unsired (Barrows Bob)"
-    },
-    {
-      "at": "2026-09-22T08:00:00.000Z",
-      "teamId": "team-seers",
-      "type": "complete",
-      "tileIndex": 5,
-      "text": "Seers Village People completed tile 6: Complete 20 Tempoross games (Magic Longbow)"
-    },
-    {
-      "at": "2026-09-21T21:30:00.000Z",
-      "teamId": "team-brigade",
-      "type": "complete",
-      "tileIndex": 7,
-      "text": "The Bingus Brigade completed tile 8: Unsired (Zulrah Enjoyer)"
-    },
-    {
-      "at": "2026-09-21T18:00:00.000Z",
-      "teamId": "team-seers",
-      "type": "complete",
-      "tileIndex": 4,
-      "text": "Seers Village People completed tile 5: Any Barrows item (Kandarin Kid)"
-    },
-    {
-      "at": "2026-09-21T16:00:00.000Z",
-      "teamId": "team-dads",
-      "type": "complete",
-      "tileIndex": 6,
-      "text": "Dharok's Dads completed tile 7: Full Angler outfit (Low HP Larry)"
-    },
-    {
-      "at": "2026-09-21T16:00:00.000Z",
-      "teamId": "team-goblin",
-      "type": "complete",
-      "tileIndex": 3,
-      "text": "Goblin Mode completed tile 4: Gain 750K Thieving XP (Goblin Chief)"
-    },
-    {
-      "at": "2026-09-21T06:00:00.000Z",
-      "teamId": "team-dads",
-      "type": "complete",
-      "tileIndex": 5,
-      "text": "Dharok's Dads completed tile 6: Complete 20 Tempoross games (Barrows Bob)"
-    },
-    {
-      "at": "2026-09-21T05:30:00.000Z",
-      "teamId": "team-brigade",
-      "type": "complete",
-      "tileIndex": 6,
-      "text": "The Bingus Brigade completed tile 7: Full Angler outfit (Sir Clicks)"
-    },
-    {
-      "at": "2026-09-21T00:00:00.000Z",
-      "teamId": "team-dads",
-      "type": "complete",
-      "tileIndex": 4,
-      "text": "Dharok's Dads completed tile 5: Any Barrows item (Low HP Larry)"
-    },
-    {
-      "at": "2026-09-20T22:30:00.000Z",
-      "teamId": "team-brigade",
-      "type": "complete",
-      "tileIndex": 5,
-      "text": "The Bingus Brigade completed tile 6: Complete 20 Tempoross games (Iron Tofu)"
-    },
-    {
-      "at": "2026-09-20T20:00:00.000Z",
-      "teamId": "team-seers",
-      "type": "complete",
-      "tileIndex": 3,
-      "text": "Seers Village People completed tile 4: Gain 750K Thieving XP (Knight Waves)"
-    },
-    {
-      "at": "2026-09-20T20:00:00.000Z",
-      "teamId": "team-goblin",
-      "type": "complete",
-      "tileIndex": 2,
-      "text": "Goblin Mode completed tile 3: Complete 10 Easy clue scrolls (Cabbage Cape)"
-    },
-    {
-      "at": "2026-09-20T17:30:00.000Z",
-      "teamId": "team-brigade",
-      "type": "complete",
-      "tileIndex": 4,
-      "text": "The Bingus Brigade completed tile 5: Any Barrows item (Mossy Keith)"
-    },
-    {
-      "at": "2026-09-20T12:00:00.000Z",
-      "teamId": "team-dads",
-      "type": "complete",
-      "tileIndex": 3,
-      "text": "Dharok's Dads completed tile 4: Gain 750K Thieving XP (Barrows Bob)"
-    },
-    {
-      "at": "2026-09-20T11:00:00.000Z",
-      "teamId": "team-seers",
-      "type": "complete",
-      "tileIndex": 2,
-      "text": "Seers Village People completed tile 3: Complete 10 Easy clue scrolls (Seers Rooftop)"
-    },
-    {
-      "at": "2026-09-20T08:30:00.000Z",
-      "teamId": "team-brigade",
-      "type": "complete",
-      "tileIndex": 3,
-      "text": "The Bingus Brigade completed tile 4: Gain 750K Thieving XP (Bingus Prime)"
-    },
-    {
-      "at": "2026-09-20T06:00:00.000Z",
-      "teamId": "team-goblin",
-      "type": "complete",
-      "tileIndex": 1,
-      "text": "Goblin Mode completed tile 2: Dragon defender (Draynor Dan)"
-    },
-    {
-      "at": "2026-09-20T05:00:00.000Z",
-      "teamId": "team-dads",
-      "type": "complete",
-      "tileIndex": 2,
-      "text": "Dharok's Dads completed tile 3: Complete 10 Easy clue scrolls (Low HP Larry)"
-    },
-    {
-      "at": "2026-09-20T02:30:00.000Z",
-      "teamId": "team-brigade",
-      "type": "complete",
-      "tileIndex": 2,
-      "text": "The Bingus Brigade completed tile 3: Complete 10 Easy clue scrolls (Zulrah Enjoyer)"
-    },
-    {
-      "at": "2026-09-20T01:00:00.000Z",
-      "teamId": "team-seers",
-      "type": "complete",
-      "tileIndex": 1,
-      "text": "Seers Village People completed tile 2: Dragon defender (Flax Picker)"
-    },
-    {
-      "at": "2026-09-19T23:00:00.000Z",
-      "teamId": "team-dads",
-      "type": "complete",
-      "tileIndex": 1,
-      "text": "Dharok's Dads completed tile 2: Dragon defender (Barrows Bob)"
-    },
-    {
-      "at": "2026-09-19T21:30:00.000Z",
-      "teamId": "team-brigade",
-      "type": "complete",
-      "tileIndex": 1,
-      "text": "The Bingus Brigade completed tile 2: Dragon defender (Sir Clicks)"
-    },
-    {
-      "at": "2026-09-19T21:00:00.000Z",
-      "teamId": "team-goblin",
-      "type": "complete",
-      "tileIndex": 0,
-      "text": "Goblin Mode completed tile 1: Team photo (Bronze Dagger)"
-    },
-    {
-      "at": "2026-09-19T20:00:00.000Z",
-      "teamId": "team-seers",
-      "type": "complete",
-      "tileIndex": 0,
-      "text": "Seers Village People completed tile 1: Team photo (Magic Longbow)"
-    },
-    {
-      "at": "2026-09-19T19:00:00.000Z",
-      "teamId": "team-dads",
-      "type": "complete",
-      "tileIndex": 0,
-      "text": "Dharok's Dads completed tile 1: Team photo (Low HP Larry)"
-    },
-    {
-      "at": "2026-09-19T18:30:00.000Z",
-      "teamId": "team-brigade",
-      "type": "complete",
-      "tileIndex": 0,
-      "text": "The Bingus Brigade completed tile 1: Team photo (Iron Tofu)"
-    }
-  ]
+  "activity": []
 }
