@@ -243,6 +243,23 @@ details summary { cursor: pointer; color: var(--muted); font-size: .88rem; }
 .chip.here { border-color: var(--accent-2); }
 .hidden-count { text-align: center; padding: 14px; color: var(--muted); border: 1px dashed var(--panel-edge); border-radius: 6px; margin-top: 8px; }
 
+/* ---------- clickable tiles + details card ---------- */
+[data-tile] { cursor: pointer; }
+.cell[data-tile]:hover, .cell[data-tile]:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 1px; z-index: 1; }
+.board-tile[data-tile] { transition: border-color .12s, transform .12s; }
+.board-tile[data-tile]:hover, .board-tile[data-tile]:focus-visible { border-color: var(--accent); transform: translateY(-1px); outline: none; }
+.tile-link { text-decoration: underline dotted var(--muted); text-underline-offset: 3px; }
+.tile-link:hover, .tile-link:focus-visible { color: var(--accent-2); outline: none; }
+dialog#tile-card { width: min(520px, calc(100vw - 24px)); }
+.tile-card { display: grid; gap: 10px; padding: 16px; }
+.tile-card-head { display: flex; gap: 12px; align-items: flex-start; }
+.tile-card-head .ic-box:empty { display: none; }
+.tile-card-head .tile-icon { width: 44px; height: 44px; }
+.tile-card-head h2 { font-size: 1.2rem; color: var(--accent-2); }
+.tile-card-teams { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.tile-card-teams li { display: grid; grid-template-columns: minmax(110px, 40%) 1fr; gap: 10px; padding: 6px 0; border-bottom: 1px dashed var(--panel-edge); font-size: .9rem; }
+.tile-card-teams .team-cell { display: flex; align-items: center; gap: 6px; font-weight: 600; }
+
 /* ---------- activity ---------- */
 .feed { list-style: none; margin: 0; padding: 0; }
 .feed li { display: grid; grid-template-columns: 120px 1fr; gap: 10px; padding: 6px 0; border-bottom: 1px solid var(--panel-edge); font-size: .9rem; }

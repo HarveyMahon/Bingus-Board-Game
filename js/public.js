@@ -118,6 +118,12 @@
     return B.fmtNum(n, tile && tile.format);
   }
 
+  /** Attributes that make an element open the tile details card. */
+  function tileAttrs(i) {
+    const t = tileAt(i);
+    return t ? ` data-tile="${i}" role="button" tabindex="0" aria-label="${esc(`Tile ${i + 1}: ${t.title} \u2014 show details`)}"` : '';
+  }
+
   function section(id, title, body, extra) {
     const collapsed = !!prefs.collapsed[id];
     return `<section class="panel${collapsed ? ' collapsed' : ''}" id="sec-${id}">
@@ -161,6 +167,9 @@
       html += section('rules', 'Rules', `<ol class="steps">${ev.rules.map((r) => `<li>${esc(r)}</li>`).join('')}</ol>`);
     }
     $('main').innerHTML = html;
+    if (openTile != null && $('tile-card').open) {
+      if (tileAt(openTile)) $('tile-card').innerHTML = tileCardHtml(openTile); else closeTileCard();
+    }
     tick();
   }
 
@@ -250,7 +259,7 @@
     let legend = '';
     for (let i = 0; i < total; i++) {
       const t = tileAt(i);
-      legend += `<div class="cell ${t ? 't' + esc(t.tier) : 'hidden-tile'}" title="${t ? esc(`Tile ${i + 1}: ${t.title}`) : 'Hidden'}"></div>`;
+      legend += `<div class="cell ${t ? 't' + esc(t.tier) : 'hidden-tile'}" title="${t ? esc(`Tile ${i + 1}: ${t.title}`) : 'Hidden'}"${tileAttrs(i)}></div>`;
     }
     let html = `<div class="race">
       <div class="lane legend"><div class="lane-name">Difficulty</div><div class="track tiers" style="--n:${total}">${legend}</div><div class="lane-pos"></div></div>`;
@@ -265,7 +274,7 @@
         else cls += 'hidden-tile';
         const t = tileAt(i);
         const title = t ? `Tile ${i + 1}: ${t.title}` : `Tile ${i + 1}`;
-        cells += `<div class="${cls}" title="${esc(title)}"></div>`;
+        cells += `<div class="${cls}" title="${esc(title)}"${tileAttrs(i)}></div>`;
       }
       const finished = !!team.finishedAt;
       const pos = finished ? 'Finished!' : `Tile ${cur + 1}/${total}`;
@@ -336,7 +345,7 @@
       body = `<div class="tile-block">
           <div class="ic-box">${icon(tile.icon)}</div>
           <div class="tile-main">
-            <div><span class="kv">Tile ${team.currentTile + 1}</span> <span class="tile-title">${esc(tile.title)}</span></div>
+            <div><span class="kv">Tile ${team.currentTile + 1}</span> <span class="tile-title tile-link"${tileAttrs(team.currentTile)}>${esc(tile.title)}</span></div>
             <div class="tile-meta">${tierBadge(tile.tier)} ${catBadge(tile.category)}</div>
             ${tile.description ? `<p class="tile-desc">${esc(tile.description)}</p>` : ''}
           </div>
@@ -404,7 +413,7 @@
         if (c) chips.push(`<span class="chip" title="${esc(B.fmtDate(c.at, tz()))}${c.by ? ' — ' + esc(c.by) : ''}">${swatch(team)} ${esc(team.name)} ✓</span>`);
         else if (team.currentTile === i && !team.finishedAt) chips.push(`<span class="chip here">${swatch(team)} ${esc(team.name)} …</span>`);
       }
-      return `<li class="card board-tile">
+      return `<li class="card board-tile"${tileAttrs(i)}>
         <div class="idx">${i + 1}</div>
         <div>${icon(t.icon)}</div>
         <div>
@@ -434,10 +443,104 @@
     return `<ul class="feed">${rows}</ul>${more}`;
   }
 
+  // ----- Tile details card -----
+  let openTile = null;
+
+  function tileCardHtml(i) {
+    const t = tileAt(i);
+    if (!t) return '';
+    const req = B.requiredFor(t);
+    const needed = t.items && t.items.length
+      ? `<ul class="items">${t.items.map((it) => `<li class="need">${esc(it)}</li>`).join('')}</ul>`
+      : `<strong>${esc(qtyText(t, req))}</strong>`;
+
+    // Where each team stands on this tile.
+    const firstDone = data.teams
+      .map((team) => ({ team, c: (team.completions || []).find((x) => x.tileIndex === i) }))
+      .filter((x) => x.c)
+      .sort((a, b) => Date.parse(a.c.at) - Date.parse(b.c.at))[0];
+    const rows = B.rankTeams(data.teams).map(({ team }) => {
+      const c = (team.completions || []).find((x) => x.tileIndex === i);
+      let status;
+      if (c) {
+        const prev = (team.completions || []).find((x) => x.tileIndex === i - 1);
+        const startedAt = prev ? prev.at : data.event.start;
+        const took = startedAt ? ` in ${B.fmtDuration(Date.parse(c.at) - Date.parse(startedAt))}` : '';
+        const first = firstDone && firstDone.team.id === team.id ? ' <span class="badge tier-4">First</span>' : '';
+        status = `<span class="status-ok">\u2714 Done${esc(took)}</span>${first}<div class="muted" style="font-size:.8rem">${esc(B.fmtDate(c.at, tz()))}${c.by ? ' \u00b7 ' + esc(c.by) : ''}</div>`;
+      } else if (team.currentTile === i && !team.finishedAt) {
+        const got = B.progressFor(team, t);
+        const since = reachedAt(team);
+        status = `<span style="color:var(--accent-2)">Working on it</span> \u00b7 <span class="num">${esc(qtyText(t, got))}/${esc(qtyText(t, req))}</span>
+          <div class="bar" style="margin-top:3px"><span style="width:${Math.round((got / req) * 100)}%"></span></div>
+          ${since ? `<div class="muted" style="font-size:.8rem">on it for ${esc(B.fmtAgo(since).replace(' ago', ''))}</div>` : ''}`;
+      } else {
+        status = `<span class="muted">Not reached yet \u00b7 on tile ${Math.min(team.currentTile + 1, data.totalTiles)}</span>`;
+      }
+      return `<li><span class="team-cell">${swatch(team)} ${esc(team.name)}</span><span>${status}</span></li>`;
+    }).join('');
+
+    return `<div class="tile-card">
+      <div class="tile-card-head">
+        <div class="ic-box">${icon(t.icon)}</div>
+        <div style="flex:1;min-width:0">
+          <div class="kv">Tile ${i + 1} of ${data.totalTiles}</div>
+          <h2 id="tile-card-title">${esc(t.title)}</h2>
+          <div class="tile-meta" style="margin-top:4px">${tierBadge(t.tier)} ${catBadge(t.category)}</div>
+        </div>
+        <button class="btn small ghost" type="button" data-close-card aria-label="Close">\u2715</button>
+      </div>
+      ${t.description ? `<p class="tile-desc" style="margin:0">${esc(t.description)}</p>` : ''}
+      <div class="kv">Needed: ${needed}</div>
+      ${t.requirements ? `<div class="kv">Requirements: <strong>${esc(t.requirements)}</strong></div>` : ''}
+      ${t.proof ? `<div class="kv">Proof: <strong>${esc(t.proof)}</strong></div>` : ''}
+      <h3 style="margin-top:4px">Teams</h3>
+      <ul class="tile-card-teams">${rows}</ul>
+      <div class="row" style="justify-content:space-between">
+        <button class="btn small" type="button" data-card-nav="-1" ${i <= 0 ? 'disabled' : ''}>\u2190 Previous</button>
+        <button class="btn small" type="button" data-card-nav="1" ${i >= data.tiles.length - 1 ? 'disabled' : ''}>Next \u2192</button>
+      </div>
+    </div>`;
+  }
+
+  function showTileCard(i) {
+    const d = $('tile-card');
+    if (!tileAt(i)) return;
+    openTile = i;
+    d.innerHTML = tileCardHtml(i);
+    if (!d.open) {
+      if (typeof d.showModal === 'function') d.showModal(); else d.setAttribute('open', '');
+    }
+    const close = d.querySelector('[data-close-card]');
+    if (close) close.focus();
+  }
+
+  function closeTileCard() {
+    const d = $('tile-card');
+    openTile = null;
+    if (typeof d.close === 'function') d.close(); else d.removeAttribute('open');
+  }
+
+  $('tile-card').addEventListener('click', (e) => {
+    const d = $('tile-card');
+    if (e.target === d) { closeTileCard(); return; } // click on the backdrop
+    if (e.target.closest('[data-close-card]')) { closeTileCard(); return; }
+    const nav = e.target.closest('[data-card-nav]');
+    if (nav && openTile != null) showTileCard(openTile + Number(nav.dataset.cardNav));
+  });
+  $('tile-card').addEventListener('close', () => { openTile = null; });
+
   // ---------------------------------------------------------------------------
   // Events
   // ---------------------------------------------------------------------------
+  $('main').addEventListener('keydown', (e) => {
+    const el = e.target.closest('[data-tile]');
+    if (el && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); showTileCard(Number(el.dataset.tile)); }
+  });
+
   $('main').addEventListener('click', (e) => {
+    const tileEl = e.target.closest('[data-tile]');
+    if (tileEl && !e.target.closest('button, input, a')) { showTileCard(Number(tileEl.dataset.tile)); return; }
     const toggle = e.target.closest('[data-toggle]');
     if (toggle) {
       const id = toggle.dataset.toggle;
