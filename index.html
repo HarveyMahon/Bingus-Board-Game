@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bingus Board Game</title>
+  <meta name="description" content="Old School RuneScape community tile race — live board, leaderboard and activity.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    // Apply the saved theme before first paint (guarded: storage may be unavailable).
+    try { var p = JSON.parse(localStorage.getItem('bingus.prefs') || '{}'); if (p.theme === 'light') document.documentElement.setAttribute('data-theme', 'light'); } catch (e) {}
+  </script>
+</head>
+<body>
+  <div id="banners"></div>
+
+  <header class="site-header">
+    <div class="wrap">
+      <div>
+        <h1 id="ev-name">Bingus Board Game</h1>
+        <p id="ev-desc">Loading the board…</p>
+      </div>
+      <div class="header-side">
+        <div id="ev-status"></div>
+        <div class="countdown" id="countdown" aria-live="polite"></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap toolbar">
+    <label>Follow team
+      <select id="follow"><option value="">— none —</option></select>
+    </label>
+    <span class="spacer"></span>
+    <small id="updated"></small>
+    <button class="btn small" id="refresh" type="button" title="Reload the latest published data">Refresh</button>
+    <button class="btn small ghost" id="theme" type="button">Light mode</button>
+  </div>
+
+  <main class="wrap" id="main"></main>
+
+  <footer class="site-footer">
+    <div>Item icons from the <a href="https://oldschool.runescape.wiki/" rel="noopener">Old School RuneScape Wiki</a> (CC BY-NC-SA 3.0).</div>
+    <div>Fan-made community event. Not affiliated with or endorsed by Jagex. Old School RuneScape is a trademark of Jagex Ltd.</div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script src="js/public.js"></script>
+</body>
+</html>

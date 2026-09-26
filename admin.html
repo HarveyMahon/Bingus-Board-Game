@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin · Bingus Board Game</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    try { var p = JSON.parse(localStorage.getItem('bingus.prefs') || '{}'); if (p.theme === 'light') document.documentElement.setAttribute('data-theme', 'light'); } catch (e) {}
+  </script>
+</head>
+<body>
+  <!--
+    This page is intentionally not linked from the public site.
+    It only reads and writes data in YOUR browser's localStorage, so anyone else
+    who opens it just sees an empty workspace — nothing here can change the live site.
+    The live site only changes when you commit a new data/event.json to the repo.
+  -->
+  <div id="banners"></div>
+  <header class="site-header">
+    <div class="wrap">
+      <div>
+        <h1>Event admin</h1>
+        <p>Your workspace is stored in this browser only. Publish by committing <code>data/event.json</code>.</p>
+      </div>
+      <div class="header-side">
+        <a class="btn small ghost" href="index.html" target="_blank" rel="noopener">Open public site ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="admin-top">
+      <button class="btn" id="undo" type="button" title="Undo (Ctrl+Z)">Undo</button>
+      <span id="save-status" class="muted" style="font-size:.85rem"></span>
+      <span class="spacer"></span>
+      <button class="btn small ghost" id="theme" type="button">Light mode</button>
+    </div>
+    <nav class="tabs" id="tabs" role="tablist"></nav>
+    <div class="view" id="view"></div>
+  </div>
+
+  <dialog id="modal"></dialog>
+  <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+
+  <script src="js/common.js"></script>
+  <script src="js/library.js"></script>
+  <script src="js/generator.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
