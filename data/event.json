@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "lastUpdated": "2026-09-26T11:57:07.391Z",
-  "live": false,
+  "lastUpdated": "2026-09-26T12:02:25.792Z",
+  "live": true,
   "event": {
     "name": "Bingus Board Game",
     "description": "A two-week clan tile race. Teams of 5–6 work through the board in order — each tile unlocks the next. First to finish wins.",
-    "start": "2026-09-26T23:00:00.000Z",
+    "start": "2026-09-25T23:00:00.000Z",
     "end": "2026-10-20T23:00:00.000Z",
     "timezone": "Europe/London",
-    "keyword": null,
+    "keyword": "Squekcg",
     "host": {
       "name": "Adamolf",
       "discord": "Adamolf",
@@ -26,7 +26,21 @@
     "showIcons": true
   },
   "totalTiles": 25,
-  "tiles": [],
+  "tiles": [
+    {
+      "id": "t-muibz12v4jv2t",
+      "title": "Full Barbarian Assault run",
+      "description": "Complete waves 1–10 of Barbarian Assault as a team.",
+      "tier": 2,
+      "category": "minigame",
+      "quantity": 1,
+      "items": null,
+      "format": null,
+      "proof": "Screenshot of the reward or completion screen with the event keyword visible.",
+      "requirements": "",
+      "icon": "Fighter hat"
+    }
+  ],
   "teams": [
     {
       "id": "team-muibz6k40ktic",
