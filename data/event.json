@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "lastUpdated": "2026-09-26T12:02:25.792Z",
+  "lastUpdated": "2026-09-26T12:18:12.990Z",
   "live": true,
   "event": {
     "name": "Bingus Board Game",
@@ -39,6 +39,315 @@
       "proof": "Screenshot of the reward or completion screen with the event keyword visible.",
       "requirements": "",
       "icon": "Fighter hat"
+    },
+    {
+      "id": "t-muibz12v67uau",
+      "title": "Any Moons of Peril armour or weapon",
+      "description": "Any Blood, Blue or Eclipse moon equipment piece.",
+      "tier": 2,
+      "category": "boss",
+      "quantity": 1,
+      "items": null,
+      "format": null,
+      "proof": "Screenshot of the drop (loot message or item on the ground) with the event keyword visible in the chatbox.",
+      "requirements": "Perilous Moons",
+      "icon": "Eclipse moon helm"
+    },
+    {
+      "id": "t-muibz12vml5zq",
+      "title": "5 bird nests",
+      "description": "Obtain 5 bird nests of any kind while woodcutting.",
+      "tier": 2,
+      "category": "skilling",
+      "quantity": 5,
+      "items": null,
+      "format": null,
+      "proof": "Screenshot(s) showing the items or completion, with the event keyword visible.",
+      "requirements": "",
+      "icon": "Bird nest"
+    },
+    {
+      "id": "t-muibz12vi69xz",
+      "title": "Get 180 Sarachnis kills",
+      "description": "Team total of 180 Sarachnis kills gained during the event.",
+      "tier": 2,
+      "category": "kc",
+      "quantity": 180,
+      "items": null,
+      "format": null,
+      "proof": "Before and after screenshots of the kill count (chat message or collection log) with the event keyword visible.",
+      "requirements": "",
+      "icon": "Sarachnis cudgel"
+    },
+    {
+      "id": "t-muibz12vdflp0",
+      "title": "Gain 2.25M Cooking XP",
+      "description": "Team total of 2.25M Cooking XP gained during the event.",
+      "tier": 2,
+      "category": "xp",
+      "quantity": 2250000,
+      "items": null,
+      "format": "xp",
+      "proof": "Before and after screenshots of each contributor’s XP (skill tab or XP tracker) with the event keyword visible.",
+      "requirements": "",
+      "icon": "Cooking icon"
+    },
+    {
+      "id": "t-muibz12v1yhjh",
+      "title": "Complete 15 Medium clue scrolls",
+      "description": "Team total of 15 medium clue scrolls completed during the event.",
+      "tier": 3,
+      "category": "clues",
+      "quantity": 15,
+      "items": null,
+      "format": null,
+      "proof": "Screenshot of each casket reward / completion message with the event keyword visible.",
+      "requirements": "",
+      "icon": "Reward casket (medium)"
+    },
+    {
+      "id": "t-muibz12vym6gh",
+      "title": "3 different Barrows items",
+      "description": "Obtain 3 different Barrows equipment pieces (team total).",
+      "tier": 3,
+      "category": "boss",
+      "quantity": 3,
+      "items": null,
+      "format": null,
+      "proof": "Screenshot of the drop (loot message or item on the ground) with the event keyword visible in the chatbox.",
+      "requirements": "",
+      "icon": "Ahrim's hood"
+    },
+    {
+      "id": "t-muibz12votpvf",
+      "title": "Full Pyromancer outfit",
+      "description": "Obtain the Pyromancer hood, garb, robe and boots.",
+      "tier": 3,
+      "category": "minigame",
+      "quantity": 4,
+      "items": [
+        "Pyromancer hood",
+        "Pyromancer garb",
+        "Pyromancer robe",
+        "Pyromancer boots"
+      ],
+      "format": null,
+      "proof": "Screenshot of the reward or completion screen with the event keyword visible.",
+      "requirements": "",
+      "icon": "Pyromancer garb"
+    },
+    {
+      "id": "t-muibz12v92sxx",
+      "title": "Full Prospector kit",
+      "description": "Obtain all four Prospector kit pieces from the Motherlode Mine.",
+      "tier": 3,
+      "category": "skilling",
+      "quantity": 4,
+      "items": [
+        "Prospector helmet",
+        "Prospector jacket",
+        "Prospector legs",
+        "Prospector boots"
+      ],
+      "format": null,
+      "proof": "Screenshot(s) showing the items or completion, with the event keyword visible.",
+      "requirements": "30 Mining",
+      "icon": "Prospector helmet"
+    },
+    {
+      "id": "t-muibz12vsmw5f",
+      "title": "Complete the Fight Caves 8 times",
+      "description": "Team total of 8 Fight Caves completions (fire capes).",
+      "tier": 3,
+      "category": "kc",
+      "quantity": 8,
+      "items": null,
+      "format": null,
+      "proof": "Before and after screenshots of the kill count (chat message or collection log) with the event keyword visible.",
+      "requirements": "",
+      "icon": "Fire cape"
+    },
+    {
+      "id": "t-muibz12vrdkx4",
+      "title": "Gain 1M Mining XP",
+      "description": "Team total of 1M Mining XP gained during the event.",
+      "tier": 3,
+      "category": "xp",
+      "quantity": 1000000,
+      "items": null,
+      "format": "xp",
+      "proof": "Before and after screenshots of each contributor’s XP (skill tab or XP tracker) with the event keyword visible.",
+      "requirements": "",
+      "icon": "Mining icon"
+    },
+    {
+      "id": "t-muibz12v42b01",
+      "title": "Basilisk jaw",
+      "description": "Obtain a Basilisk jaw from Basilisk Knights.",
+      "tier": 3,
+      "category": "boss",
+      "quantity": 1,
+      "items": null,
+      "format": null,
+      "proof": "Screenshot of the drop (loot message or item on the ground) with the event keyword visible in the chatbox.",
+      "requirements": "60 Slayer; The Fremennik Exiles",
+      "icon": "Basilisk jaw"
+    },
+    {
+      "id": "t-muibz12vrronr",
+      "title": "Complete 11 Elite clue scrolls",
+      "description": "Team total of 11 elite clue scrolls completed during the event.",
+      "tier": 4,
+      "category": "clues",
+      "quantity": 11,
+      "items": null,
+      "format": null,
+      "proof": "Screenshot of each casket reward / completion message with the event keyword visible.",
+      "requirements": "",
+      "icon": "Reward casket (elite)"
+    },
+    {
+      "id": "t-muibz12vlmypn",
+      "title": "Mine 4,500 Stardust",
+      "description": "Team total of 4,500 Stardust from Shooting Stars.",
+      "tier": 4,
+      "category": "skilling",
+      "quantity": 4500,
+      "items": null,
+      "format": null,
+      "proof": "Screenshot(s) showing the items or completion, with the event keyword visible.",
+      "requirements": "",
+      "icon": "Stardust"
+    },
+    {
+      "id": "t-muibz12ve4y52",
+      "title": "Gain 1.75M Woodcutting XP",
+      "description": "Team total of 1.75M Woodcutting XP gained during the event.",
+      "tier": 4,
+      "category": "xp",
+      "quantity": 1750000,
+      "items": null,
+      "format": "xp",
+      "proof": "Before and after screenshots of each contributor’s XP (skill tab or XP tracker) with the event keyword visible.",
+      "requirements": "",
+      "icon": "Woodcutting icon"
+    },
+    {
+      "id": "t-muibz12verpyb",
+      "title": "Any Araxxor unique",
+      "description": "Araxyte fang, a Noxious halberd component or Araxyte head.",
+      "tier": 4,
+      "category": "boss",
+      "quantity": 1,
+      "items": null,
+      "format": null,
+      "proof": "Screenshot of the drop (loot message or item on the ground) with the event keyword visible in the chatbox.",
+      "requirements": "92 Slayer",
+      "icon": "Araxyte fang"
+    },
+    {
+      "id": "t-muibz12v58zje",
+      "title": "Complete 19 Chambers of Xeric raids",
+      "description": "Team total of 19 Chambers of Xeric completions (each player in a raid counts it once per raid).",
+      "tier": 4,
+      "category": "kc",
+      "quantity": 19,
+      "items": null,
+      "format": null,
+      "proof": "Before and after screenshots of the kill count (chat message or collection log) with the event keyword visible.",
+      "requirements": "Raids knowledge",
+      "icon": "Dexterous prayer scroll"
+    },
+    {
+      "id": "t-muibz12v4z667",
+      "title": "Complete 8 Master clue scrolls",
+      "description": "Team total of 8 master clue scrolls completed during the event.",
+      "tier": 4,
+      "category": "clues",
+      "quantity": 8,
+      "items": null,
+      "format": null,
+      "proof": "Screenshot of each casket reward / completion message with the event keyword visible.",
+      "requirements": "",
+      "icon": "Reward casket (master)"
+    },
+    {
+      "id": "t-muibz12vq97cq",
+      "title": "Gain 4.5M Magic XP",
+      "description": "Team total of 4.5M Magic XP gained during the event.",
+      "tier": 4,
+      "category": "xp",
+      "quantity": 4500000,
+      "items": null,
+      "format": "xp",
+      "proof": "Before and after screenshots of each contributor’s XP (skill tab or XP tracker) with the event keyword visible.",
+      "requirements": "",
+      "icon": "Magic icon"
+    },
+    {
+      "id": "t-muibz12v121rd",
+      "title": "Imbued heart or Eternal gem",
+      "description": "From superior slayer creatures.",
+      "tier": 4,
+      "category": "boss",
+      "quantity": 1,
+      "items": null,
+      "format": null,
+      "proof": "Screenshot of the drop (loot message or item on the ground) with the event keyword visible in the chatbox.",
+      "requirements": "Bigger and Badder unlock",
+      "icon": "Imbued heart"
+    },
+    {
+      "id": "t-muibz12vqtbik",
+      "title": "Get 60 Nex kills",
+      "description": "Team total of 60 Nex kills gained during the event.",
+      "tier": 4,
+      "category": "kc",
+      "quantity": 60,
+      "items": null,
+      "format": null,
+      "proof": "Before and after screenshots of the kill count (chat message or collection log) with the event keyword visible.",
+      "requirements": "The Frozen Door; high combat stats; group",
+      "icon": "Zaryte vambraces"
+    },
+    {
+      "id": "t-muibz12vfussk",
+      "title": "Complete the Fortis Colosseum",
+      "description": "Complete all 12 waves of the Fortis Colosseum.",
+      "tier": 5,
+      "category": "minigame",
+      "quantity": 1,
+      "items": null,
+      "format": null,
+      "proof": "Screenshot of the reward or completion screen with the event keyword visible.",
+      "requirements": "High stats",
+      "icon": "Dizana's quiver"
+    },
+    {
+      "id": "t-muibz12v37abw",
+      "title": "Gain 4.25M Ranged XP",
+      "description": "Team total of 4.25M Ranged XP gained during the event.",
+      "tier": 4,
+      "category": "xp",
+      "quantity": 4250000,
+      "items": null,
+      "format": "xp",
+      "proof": "Before and after screenshots of each contributor’s XP (skill tab or XP tracker) with the event keyword visible.",
+      "requirements": "",
+      "icon": "Ranged icon"
+    },
+    {
+      "id": "t-muibz12vmt0mn",
+      "title": "Dizana's quiver",
+      "description": "Complete the Fortis Colosseum.",
+      "tier": 5,
+      "category": "boss",
+      "quantity": 1,
+      "items": null,
+      "format": null,
+      "proof": "Screenshot of the drop (loot message or item on the ground) with the event keyword visible in the chatbox.",
+      "requirements": "High stats; Colosseum experience",
+      "icon": "Dizana's quiver"
     }
   ],
   "teams": [
@@ -51,12 +360,127 @@
           "rsn": "Donny"
         }
       ],
-      "currentTile": 0,
+      "currentTile": 19,
       "progress": {
         "count": 0,
         "items": []
       },
-      "completions": [],
+      "completions": [
+        {
+          "tileIndex": 0,
+          "tileId": "t-muibz12v4jv2t",
+          "at": "2026-09-26T12:05:00.000Z",
+          "by": "Donny"
+        },
+        {
+          "tileIndex": 1,
+          "tileId": "t-muibz12v67uau",
+          "at": "2026-09-26T12:05:00.000Z",
+          "by": "Donny"
+        },
+        {
+          "tileIndex": 2,
+          "tileId": "t-muibz12vml5zq",
+          "at": "2026-09-26T12:05:00.000Z",
+          "by": "Donny"
+        },
+        {
+          "tileIndex": 3,
+          "tileId": "t-muibz12vi69xz",
+          "at": "2026-09-26T12:05:00.000Z",
+          "by": "Donny"
+        },
+        {
+          "tileIndex": 4,
+          "tileId": "t-muibz12vdflp0",
+          "at": "2026-09-26T12:05:00.000Z",
+          "by": "Donny"
+        },
+        {
+          "tileIndex": 5,
+          "tileId": "t-muibz12v1yhjh",
+          "at": "2026-09-26T12:05:00.000Z",
+          "by": "Donny"
+        },
+        {
+          "tileIndex": 6,
+          "tileId": "t-muibz12vym6gh",
+          "at": "2026-09-26T12:05:00.000Z",
+          "by": "Donny"
+        },
+        {
+          "tileIndex": 7,
+          "tileId": "t-muibz12votpvf",
+          "at": "2026-09-26T12:05:00.000Z",
+          "by": "Donny"
+        },
+        {
+          "tileIndex": 8,
+          "tileId": "t-muibz12v92sxx",
+          "at": "2026-09-26T12:05:00.000Z",
+          "by": "Donny"
+        },
+        {
+          "tileIndex": 9,
+          "tileId": "t-muibz12vsmw5f",
+          "at": "2026-09-26T12:05:00.000Z",
+          "by": "Donny"
+        },
+        {
+          "tileIndex": 10,
+          "tileId": "t-muibz12vrdkx4",
+          "at": "2026-09-26T12:05:00.000Z",
+          "by": "Donny"
+        },
+        {
+          "tileIndex": 11,
+          "tileId": "t-muibz12v42b01",
+          "at": "2026-09-26T12:05:00.000Z",
+          "by": "Donny"
+        },
+        {
+          "tileIndex": 12,
+          "tileId": "t-muibz12vrronr",
+          "at": "2026-09-26T12:05:00.000Z",
+          "by": "Donny"
+        },
+        {
+          "tileIndex": 13,
+          "tileId": "t-muibz12vlmypn",
+          "at": "2026-09-26T12:06:00.000Z",
+          "by": "Donny"
+        },
+        {
+          "tileIndex": 14,
+          "tileId": "t-muibz12ve4y52",
+          "at": "2026-09-26T12:06:00.000Z",
+          "by": "Donny"
+        },
+        {
+          "tileIndex": 15,
+          "tileId": "t-muibz12verpyb",
+          "at": "2026-09-26T12:06:00.000Z",
+          "by": "Donny"
+        },
+        {
+          "tileIndex": 16,
+          "tileId": "t-muibz12v58zje",
+          "at": "2026-09-26T12:06:00.000Z",
+          "by": "Donny"
+        },
+        {
+          "tileIndex": 17,
+          "tileId": "t-muibz12v4z667",
+          "at": "2026-09-26T12:06:00.000Z",
+          "by": "Donny"
+        },
+        {
+          "tileIndex": 18,
+          "tileId": "t-muibz12vq97cq",
+          "at": "2026-09-26T12:06:00.000Z",
+          "by": "Donny"
+        }
+      ],
       "finishedAt": null
     },
     {
@@ -68,12 +492,151 @@
           "rsn": "Adam"
         }
       ],
-      "currentTile": 0,
+      "currentTile": 23,
       "progress": {
         "count": 0,
         "items": []
       },
-      "completions": [],
+      "completions": [
+        {
+          "tileIndex": 0,
+          "tileId": "t-muibz12v4jv2t",
+          "at": "2026-09-26T12:03:00.000Z",
+          "by": "Adam"
+        },
+        {
+          "tileIndex": 1,
+          "tileId": "t-muibz12v67uau",
+          "at": "2026-09-26T12:04:00.000Z",
+          "by": "Adam"
+        },
+        {
+          "tileIndex": 2,
+          "tileId": "t-muibz12vml5zq",
+          "at": "2026-09-26T12:04:00.000Z",
+          "by": "Adam"
+        },
+        {
+          "tileIndex": 3,
+          "tileId": "t-muibz12vi69xz",
+          "at": "2026-09-26T12:04:00.000Z",
+          "by": "Adam"
+        },
+        {
+          "tileIndex": 4,
+          "tileId": "t-muibz12vdflp0",
+          "at": "2026-09-26T12:04:00.000Z",
+          "by": "Adam"
+        },
+        {
+          "tileIndex": 5,
+          "tileId": "t-muibz12v1yhjh",
+          "at": "2026-09-26T12:04:00.000Z",
+          "by": "Adam"
+        },
+        {
+          "tileIndex": 6,
+          "tileId": "t-muibz12vym6gh",
+          "at": "2026-09-26T12:04:00.000Z",
+          "by": "Adam"
+        },
+        {
+          "tileIndex": 7,
+          "tileId": "t-muibz12votpvf",
+          "at": "2026-09-26T12:04:00.000Z",
+          "by": "Adam"
+        },
+        {
+          "tileIndex": 8,
+          "tileId": "t-muibz12v92sxx",
+          "at": "2026-09-26T12:04:00.000Z",
+          "by": "Adam"
+        },
+        {
+          "tileIndex": 9,
+          "tileId": "t-muibz12vsmw5f",
+          "at": "2026-09-26T12:04:00.000Z",
+          "by": "Adam"
+        },
+        {
+          "tileIndex": 10,
+          "tileId": "t-muibz12vrdkx4",
+          "at": "2026-09-26T12:04:00.000Z",
+          "by": "Adam"
+        },
+        {
+          "tileIndex": 11,
+          "tileId": "t-muibz12v42b01",
+          "at": "2026-09-26T12:04:00.000Z",
+          "by": "Adam"
+        },
+        {
+          "tileIndex": 12,
+          "tileId": "t-muibz12vrronr",
+          "at": "2026-09-26T12:04:00.000Z",
+          "by": "Adam"
+        },
+        {
+          "tileIndex": 13,
+          "tileId": "t-muibz12vlmypn",
+          "at": "2026-09-26T12:04:00.000Z",
+          "by": "Adam"
+        },
+        {
+          "tileIndex": 14,
+          "tileId": "t-muibz12ve4y52",
+          "at": "2026-09-26T12:04:00.000Z",
+          "by": "Adam"
+        },
+        {
+          "tileIndex": 15,
+          "tileId": "t-muibz12verpyb",
+          "at": "2026-09-26T12:04:00.000Z",
+          "by": "Adam"
+        },
+        {
+          "tileIndex": 16,
+          "tileId": "t-muibz12v58zje",
+          "at": "2026-09-26T12:04:00.000Z",
+          "by": "Adam"
+        },
+        {
+          "tileIndex": 17,
+          "tileId": "t-muibz12v4z667",
+          "at": "2026-09-26T12:04:00.000Z",
+          "by": "Adam"
+        },
+        {
+          "tileIndex": 18,
+          "tileId": "t-muibz12vq97cq",
+          "at": "2026-09-26T12:04:00.000Z",
+          "by": "Adam"
+        },
+        {
+          "tileIndex": 19,
+          "tileId": "t-muibz12v121rd",
+          "at": "2026-09-26T12:05:00.000Z",
+          "by": "Adam"
+        },
+        {
+          "tileIndex": 20,
+          "tileId": "t-muibz12vqtbik",
+          "at": "2026-09-26T12:05:00.000Z",
+          "by": "Adam"
+        },
+        {
+          "tileIndex": 21,
+          "tileId": "t-muibz12vfussk",
+          "at": "2026-09-26T12:05:00.000Z",
+          "by": "Adam"
+        },
+        {
+          "tileIndex": 22,
+          "tileId": "t-muibz12v37abw",
+          "at": "2026-09-26T12:05:00.000Z",
+          "by": "Adam"
+        }
+      ],
       "finishedAt": null
     },
     {
@@ -85,12 +648,139 @@
           "rsn": "Kiro"
         }
       ],
-      "currentTile": 0,
+      "currentTile": 21,
       "progress": {
         "count": 0,
         "items": []
       },
-      "completions": [],
+      "completions": [
+        {
+          "tileIndex": 0,
+          "tileId": "t-muibz12v4jv2t",
+          "at": "2026-09-26T12:04:00.000Z",
+          "by": "Kiro"
+        },
+        {
+          "tileIndex": 1,
+          "tileId": "t-muibz12v67uau",
+          "at": "2026-09-26T12:04:00.000Z",
+          "by": "Kiro"
+        },
+        {
+          "tileIndex": 2,
+          "tileId": "t-muibz12vml5zq",
+          "at": "2026-09-26T12:04:00.000Z",
+          "by": "Kiro"
+        },
+        {
+          "tileIndex": 3,
+          "tileId": "t-muibz12vi69xz",
+          "at": "2026-09-26T12:04:00.000Z",
+          "by": "Kiro"
+        },
+        {
+          "tileIndex": 4,
+          "tileId": "t-muibz12vdflp0",
+          "at": "2026-09-26T12:04:00.000Z",
+          "by": "Kiro"
+        },
+        {
+          "tileIndex": 5,
+          "tileId": "t-muibz12v1yhjh",
+          "at": "2026-09-26T12:04:00.000Z",
+          "by": "Kiro"
+        },
+        {
+          "tileIndex": 6,
+          "tileId": "t-muibz12vym6gh",
+          "at": "2026-09-26T12:04:00.000Z",
+          "by": "Kiro"
+        },
+        {
+          "tileIndex": 7,
+          "tileId": "t-muibz12votpvf",
+          "at": "2026-09-26T12:04:00.000Z",
+          "by": "Kiro"
+        },
+        {
+          "tileIndex": 8,
+          "tileId": "t-muibz12v92sxx",
+          "at": "2026-09-26T12:04:00.000Z",
+          "by": "Kiro"
+        },
+        {
+          "tileIndex": 9,
+          "tileId": "t-muibz12vsmw5f",
+          "at": "2026-09-26T12:05:00.000Z",
+          "by": "Kiro"
+        },
+        {
+          "tileIndex": 10,
+          "tileId": "t-muibz12vrdkx4",
+          "at": "2026-09-26T12:05:00.000Z",
+          "by": "Kiro"
+        },
+        {
+          "tileIndex": 11,
+          "tileId": "t-muibz12v42b01",
+          "at": "2026-09-26T12:05:00.000Z",
+          "by": "Kiro"
+        },
+        {
+          "tileIndex": 12,
+          "tileId": "t-muibz12vrronr",
+          "at": "2026-09-26T12:05:00.000Z",
+          "by": "Kiro"
+        },
+        {
+          "tileIndex": 13,
+          "tileId": "t-muibz12vlmypn",
+          "at": "2026-09-26T12:05:00.000Z",
+          "by": "Kiro"
+        },
+        {
+          "tileIndex": 14,
+          "tileId": "t-muibz12ve4y52",
+          "at": "2026-09-26T12:05:00.000Z",
+          "by": "Kiro"
+        },
+        {
+          "tileIndex": 15,
+          "tileId": "t-muibz12verpyb",
+          "at": "2026-09-26T12:05:00.000Z",
+          "by": "Kiro"
+        },
+        {
+          "tileIndex": 16,
+          "tileId": "t-muibz12v58zje",
+          "at": "2026-09-26T12:05:00.000Z",
+          "by": "Kiro"
+        },
+        {
+          "tileIndex": 17,
+          "tileId": "t-muibz12v4z667",
+          "at": "2026-09-26T12:05:00.000Z",
+          "by": "Kiro"
+        },
+        {
+          "tileIndex": 18,
+          "tileId": "t-muibz12vq97cq",
+          "at": "2026-09-26T12:05:00.000Z",
+          "by": "Kiro"
+        },
+        {
+          "tileIndex": 19,
+          "tileId": "t-muibz12v121rd",
+          "at": "2026-09-26T12:05:00.000Z",
+          "by": "Kiro"
+        },
+        {
+          "tileIndex": 20,
+          "tileId": "t-muibz12vqtbik",
+          "at": "2026-09-26T12:05:00.000Z",
+          "by": "Kiro"
+        }
+      ],
       "finishedAt": null
     },
     {
@@ -102,12 +792,127 @@
           "rsn": "Dan"
         }
       ],
-      "currentTile": 0,
+      "currentTile": 19,
       "progress": {
         "count": 0,
         "items": []
       },
-      "completions": [],
+      "completions": [
+        {
+          "tileIndex": 0,
+          "tileId": "t-muibz12v4jv2t",
+          "at": "2026-09-26T12:06:00.000Z",
+          "by": "Dan"
+        },
+        {
+          "tileIndex": 1,
+          "tileId": "t-muibz12v67uau",
+          "at": "2026-09-26T12:06:00.000Z",
+          "by": "Dan"
+        },
+        {
+          "tileIndex": 2,
+          "tileId": "t-muibz12vml5zq",
+          "at": "2026-09-26T12:06:00.000Z",
+          "by": "Dan"
+        },
+        {
+          "tileIndex": 3,
+          "tileId": "t-muibz12vi69xz",
+          "at": "2026-09-26T12:06:00.000Z",
+          "by": "Dan"
+        },
+        {
+          "tileIndex": 4,
+          "tileId": "t-muibz12vdflp0",
+          "at": "2026-09-26T12:06:00.000Z",
+          "by": "Dan"
+        },
+        {
+          "tileIndex": 5,
+          "tileId": "t-muibz12v1yhjh",
+          "at": "2026-09-26T12:06:00.000Z",
+          "by": "Dan"
+        },
+        {
+          "tileIndex": 6,
+          "tileId": "t-muibz12vym6gh",
+          "at": "2026-09-26T12:06:00.000Z",
+          "by": "Dan"
+        },
+        {
+          "tileIndex": 7,
+          "tileId": "t-muibz12votpvf",
+          "at": "2026-09-26T12:06:00.000Z",
+          "by": "Dan"
+        },
+        {
+          "tileIndex": 8,
+          "tileId": "t-muibz12v92sxx",
+          "at": "2026-09-26T12:06:00.000Z",
+          "by": "Dan"
+        },
+        {
+          "tileIndex": 9,
+          "tileId": "t-muibz12vsmw5f",
+          "at": "2026-09-26T12:06:00.000Z",
+          "by": "Dan"
+        },
+        {
+          "tileIndex": 10,
+          "tileId": "t-muibz12vrdkx4",
+          "at": "2026-09-26T12:06:00.000Z",
+          "by": "Dan"
+        },
+        {
+          "tileIndex": 11,
+          "tileId": "t-muibz12v42b01",
+          "at": "2026-09-26T12:06:00.000Z",
+          "by": "Dan"
+        },
+        {
+          "tileIndex": 12,
+          "tileId": "t-muibz12vrronr",
+          "at": "2026-09-26T12:06:00.000Z",
+          "by": "Dan"
+        },
+        {
+          "tileIndex": 13,
+          "tileId": "t-muibz12vlmypn",
+          "at": "2026-09-26T12:06:00.000Z",
+          "by": "Dan"
+        },
+        {
+          "tileIndex": 14,
+          "tileId": "t-muibz12ve4y52",
+          "at": "2026-09-26T12:06:00.000Z",
+          "by": "Dan"
+        },
+        {
+          "tileIndex": 15,
+          "tileId": "t-muibz12verpyb",
+          "at": "2026-09-26T12:06:00.000Z",
+          "by": "Dan"
+        },
+        {
+          "tileIndex": 16,
+          "tileId": "t-muibz12v58zje",
+          "at": "2026-09-26T12:06:00.000Z",
+          "by": "Dan"
+        },
+        {
+          "tileIndex": 17,
+          "tileId": "t-muibz12v4z667",
+          "at": "2026-09-26T12:06:00.000Z",
+          "by": "Dan"
+        },
+        {
+          "tileIndex": 18,
+          "tileId": "t-muibz12vq97cq",
+          "at": "2026-09-26T12:06:00.000Z",
+          "by": "Dan"
+        }
+      ],
       "finishedAt": null
     },
     {
@@ -119,14 +924,691 @@
           "rsn": "Exon"
         }
       ],
-      "currentTile": 0,
+      "currentTile": 7,
       "progress": {
-        "count": 0,
-        "items": []
+        "count": 2,
+        "items": [
+          "Pyromancer garb",
+          "Pyromancer boots"
+        ]
       },
-      "completions": [],
+      "completions": [
+        {
+          "tileIndex": 0,
+          "tileId": "t-muibz12v4jv2t",
+          "at": "2026-09-26T12:06:00.000Z",
+          "by": "Exon"
+        },
+        {
+          "tileIndex": 1,
+          "tileId": "t-muibz12v67uau",
+          "at": "2026-09-26T12:06:00.000Z",
+          "by": "Exon"
+        },
+        {
+          "tileIndex": 2,
+          "tileId": "t-muibz12vml5zq",
+          "at": "2026-09-26T12:06:00.000Z",
+          "by": "Exon"
+        },
+        {
+          "tileIndex": 3,
+          "tileId": "t-muibz12vi69xz",
+          "at": "2026-09-26T12:06:00.000Z",
+          "by": "Exon"
+        },
+        {
+          "tileIndex": 4,
+          "tileId": "t-muibz12vdflp0",
+          "at": "2026-09-26T12:06:00.000Z",
+          "by": "Exon"
+        },
+        {
+          "tileIndex": 5,
+          "tileId": "t-muibz12v1yhjh",
+          "at": "2026-09-26T12:06:00.000Z",
+          "by": "Exon"
+        },
+        {
+          "tileIndex": 6,
+          "tileId": "t-muibz12vym6gh",
+          "at": "2026-09-26T12:07:00.000Z",
+          "by": "Exon"
+        }
+      ],
       "finishedAt": null
     }
   ],
-  "activity": []
+  "activity": [
+    {
+      "at": "2026-09-26T12:07:06.672Z",
+      "teamId": "team-muic0toalceuz",
+      "type": "progress",
+      "tileIndex": 7,
+      "text": "Exon's Extremists: got Pyromancer garb, Pyromancer boots (2/4) on Full Pyromancer outfit"
+    },
+    {
+      "at": "2026-09-26T12:07:00.000Z",
+      "teamId": "team-muic0toalceuz",
+      "type": "complete",
+      "tileIndex": 6,
+      "text": "Exon's Extremists completed tile 7: 3 different Barrows items (Exon)"
+    },
+    {
+      "at": "2026-09-26T12:06:00.000Z",
+      "teamId": "team-muibz6k40ktic",
+      "type": "complete",
+      "tileIndex": 13,
+      "text": "Donny's Demons completed tile 14: Mine 4,500 Stardust (Donny)"
+    },
+    {
+      "at": "2026-09-26T12:06:00.000Z",
+      "teamId": "team-muibz6k40ktic",
+      "type": "complete",
+      "tileIndex": 14,
+      "text": "Donny's Demons completed tile 15: Gain 1.75M Woodcutting XP (Donny)"
+    },
+    {
+      "at": "2026-09-26T12:06:00.000Z",
+      "teamId": "team-muibz6k40ktic",
+      "type": "complete",
+      "tileIndex": 15,
+      "text": "Donny's Demons completed tile 16: Any Araxxor unique (Donny)"
+    },
+    {
+      "at": "2026-09-26T12:06:00.000Z",
+      "teamId": "team-muibz6k40ktic",
+      "type": "complete",
+      "tileIndex": 16,
+      "text": "Donny's Demons completed tile 17: Complete 19 Chambers of Xeric raids (Donny)"
+    },
+    {
+      "at": "2026-09-26T12:06:00.000Z",
+      "teamId": "team-muibz6k40ktic",
+      "type": "complete",
+      "tileIndex": 17,
+      "text": "Donny's Demons completed tile 18: Complete 8 Master clue scrolls (Donny)"
+    },
+    {
+      "at": "2026-09-26T12:06:00.000Z",
+      "teamId": "team-muibz6k40ktic",
+      "type": "complete",
+      "tileIndex": 18,
+      "text": "Donny's Demons completed tile 19: Gain 4.5M Magic XP (Donny)"
+    },
+    {
+      "at": "2026-09-26T12:06:00.000Z",
+      "teamId": "team-muic003tdbd1m",
+      "type": "complete",
+      "tileIndex": 0,
+      "text": "Dan's Donkey's completed tile 1: Full Barbarian Assault run (Dan)"
+    },
+    {
+      "at": "2026-09-26T12:06:00.000Z",
+      "teamId": "team-muic003tdbd1m",
+      "type": "complete",
+      "tileIndex": 1,
+      "text": "Dan's Donkey's completed tile 2: Any Moons of Peril armour or weapon (Dan)"
+    },
+    {
+      "at": "2026-09-26T12:06:00.000Z",
+      "teamId": "team-muic003tdbd1m",
+      "type": "complete",
+      "tileIndex": 2,
+      "text": "Dan's Donkey's completed tile 3: 5 bird nests (Dan)"
+    },
+    {
+      "at": "2026-09-26T12:06:00.000Z",
+      "teamId": "team-muic003tdbd1m",
+      "type": "complete",
+      "tileIndex": 3,
+      "text": "Dan's Donkey's completed tile 4: Get 180 Sarachnis kills (Dan)"
+    },
+    {
+      "at": "2026-09-26T12:06:00.000Z",
+      "teamId": "team-muic003tdbd1m",
+      "type": "complete",
+      "tileIndex": 4,
+      "text": "Dan's Donkey's completed tile 5: Gain 2.25M Cooking XP (Dan)"
+    },
+    {
+      "at": "2026-09-26T12:06:00.000Z",
+      "teamId": "team-muic003tdbd1m",
+      "type": "complete",
+      "tileIndex": 5,
+      "text": "Dan's Donkey's completed tile 6: Complete 15 Medium clue scrolls (Dan)"
+    },
+    {
+      "at": "2026-09-26T12:06:00.000Z",
+      "teamId": "team-muic003tdbd1m",
+      "type": "complete",
+      "tileIndex": 6,
+      "text": "Dan's Donkey's completed tile 7: 3 different Barrows items (Dan)"
+    },
+    {
+      "at": "2026-09-26T12:06:00.000Z",
+      "teamId": "team-muic003tdbd1m",
+      "type": "complete",
+      "tileIndex": 7,
+      "text": "Dan's Donkey's completed tile 8: Full Pyromancer outfit (Dan)"
+    },
+    {
+      "at": "2026-09-26T12:06:00.000Z",
+      "teamId": "team-muic003tdbd1m",
+      "type": "complete",
+      "tileIndex": 8,
+      "text": "Dan's Donkey's completed tile 9: Full Prospector kit (Dan)"
+    },
+    {
+      "at": "2026-09-26T12:06:00.000Z",
+      "teamId": "team-muic003tdbd1m",
+      "type": "complete",
+      "tileIndex": 9,
+      "text": "Dan's Donkey's completed tile 10: Complete the Fight Caves 8 times (Dan)"
+    },
+    {
+      "at": "2026-09-26T12:06:00.000Z",
+      "teamId": "team-muic003tdbd1m",
+      "type": "complete",
+      "tileIndex": 10,
+      "text": "Dan's Donkey's completed tile 11: Gain 1M Mining XP (Dan)"
+    },
+    {
+      "at": "2026-09-26T12:06:00.000Z",
+      "teamId": "team-muic003tdbd1m",
+      "type": "complete",
+      "tileIndex": 11,
+      "text": "Dan's Donkey's completed tile 12: Basilisk jaw (Dan)"
+    },
+    {
+      "at": "2026-09-26T12:06:00.000Z",
+      "teamId": "team-muic003tdbd1m",
+      "type": "complete",
+      "tileIndex": 12,
+      "text": "Dan's Donkey's completed tile 13: Complete 11 Elite clue scrolls (Dan)"
+    },
+    {
+      "at": "2026-09-26T12:06:00.000Z",
+      "teamId": "team-muic003tdbd1m",
+      "type": "complete",
+      "tileIndex": 13,
+      "text": "Dan's Donkey's completed tile 14: Mine 4,500 Stardust (Dan)"
+    },
+    {
+      "at": "2026-09-26T12:06:00.000Z",
+      "teamId": "team-muic003tdbd1m",
+      "type": "complete",
+      "tileIndex": 14,
+      "text": "Dan's Donkey's completed tile 15: Gain 1.75M Woodcutting XP (Dan)"
+    },
+    {
+      "at": "2026-09-26T12:06:00.000Z",
+      "teamId": "team-muic003tdbd1m",
+      "type": "complete",
+      "tileIndex": 15,
+      "text": "Dan's Donkey's completed tile 16: Any Araxxor unique (Dan)"
+    },
+    {
+      "at": "2026-09-26T12:06:00.000Z",
+      "teamId": "team-muic003tdbd1m",
+      "type": "complete",
+      "tileIndex": 16,
+      "text": "Dan's Donkey's completed tile 17: Complete 19 Chambers of Xeric raids (Dan)"
+    },
+    {
+      "at": "2026-09-26T12:06:00.000Z",
+      "teamId": "team-muic003tdbd1m",
+      "type": "complete",
+      "tileIndex": 17,
+      "text": "Dan's Donkey's completed tile 18: Complete 8 Master clue scrolls (Dan)"
+    },
+    {
+      "at": "2026-09-26T12:06:00.000Z",
+      "teamId": "team-muic003tdbd1m",
+      "type": "complete",
+      "tileIndex": 18,
+      "text": "Dan's Donkey's completed tile 19: Gain 4.5M Magic XP (Dan)"
+    },
+    {
+      "at": "2026-09-26T12:06:00.000Z",
+      "teamId": "team-muic0toalceuz",
+      "type": "complete",
+      "tileIndex": 0,
+      "text": "Exon's Extremists completed tile 1: Full Barbarian Assault run (Exon)"
+    },
+    {
+      "at": "2026-09-26T12:06:00.000Z",
+      "teamId": "team-muic0toalceuz",
+      "type": "complete",
+      "tileIndex": 1,
+      "text": "Exon's Extremists completed tile 2: Any Moons of Peril armour or weapon (Exon)"
+    },
+    {
+      "at": "2026-09-26T12:06:00.000Z",
+      "teamId": "team-muic0toalceuz",
+      "type": "complete",
+      "tileIndex": 2,
+      "text": "Exon's Extremists completed tile 3: 5 bird nests (Exon)"
+    },
+    {
+      "at": "2026-09-26T12:06:00.000Z",
+      "teamId": "team-muic0toalceuz",
+      "type": "complete",
+      "tileIndex": 3,
+      "text": "Exon's Extremists completed tile 4: Get 180 Sarachnis kills (Exon)"
+    },
+    {
+      "at": "2026-09-26T12:06:00.000Z",
+      "teamId": "team-muic0toalceuz",
+      "type": "complete",
+      "tileIndex": 4,
+      "text": "Exon's Extremists completed tile 5: Gain 2.25M Cooking XP (Exon)"
+    },
+    {
+      "at": "2026-09-26T12:06:00.000Z",
+      "teamId": "team-muic0toalceuz",
+      "type": "complete",
+      "tileIndex": 5,
+      "text": "Exon's Extremists completed tile 6: Complete 15 Medium clue scrolls (Exon)"
+    },
+    {
+      "at": "2026-09-26T12:05:00.000Z",
+      "teamId": "team-muibzot68dosp",
+      "type": "complete",
+      "tileIndex": 9,
+      "text": "Kiro's Kool Klub completed tile 10: Complete the Fight Caves 8 times (Kiro)"
+    },
+    {
+      "at": "2026-09-26T12:05:00.000Z",
+      "teamId": "team-muibzot68dosp",
+      "type": "complete",
+      "tileIndex": 10,
+      "text": "Kiro's Kool Klub completed tile 11: Gain 1M Mining XP (Kiro)"
+    },
+    {
+      "at": "2026-09-26T12:05:00.000Z",
+      "teamId": "team-muibzot68dosp",
+      "type": "complete",
+      "tileIndex": 11,
+      "text": "Kiro's Kool Klub completed tile 12: Basilisk jaw (Kiro)"
+    },
+    {
+      "at": "2026-09-26T12:05:00.000Z",
+      "teamId": "team-muibzot68dosp",
+      "type": "complete",
+      "tileIndex": 12,
+      "text": "Kiro's Kool Klub completed tile 13: Complete 11 Elite clue scrolls (Kiro)"
+    },
+    {
+      "at": "2026-09-26T12:05:00.000Z",
+      "teamId": "team-muibzot68dosp",
+      "type": "complete",
+      "tileIndex": 13,
+      "text": "Kiro's Kool Klub completed tile 14: Mine 4,500 Stardust (Kiro)"
+    },
+    {
+      "at": "2026-09-26T12:05:00.000Z",
+      "teamId": "team-muibzot68dosp",
+      "type": "complete",
+      "tileIndex": 14,
+      "text": "Kiro's Kool Klub completed tile 15: Gain 1.75M Woodcutting XP (Kiro)"
+    },
+    {
+      "at": "2026-09-26T12:05:00.000Z",
+      "teamId": "team-muibzd8j354pt",
+      "type": "complete",
+      "tileIndex": 19,
+      "text": "Adam's Aviansie's completed tile 20: Imbued heart or Eternal gem (Adam)"
+    },
+    {
+      "at": "2026-09-26T12:05:00.000Z",
+      "teamId": "team-muibzd8j354pt",
+      "type": "complete",
+      "tileIndex": 20,
+      "text": "Adam's Aviansie's completed tile 21: Get 60 Nex kills (Adam)"
+    },
+    {
+      "at": "2026-09-26T12:05:00.000Z",
+      "teamId": "team-muibzd8j354pt",
+      "type": "complete",
+      "tileIndex": 21,
+      "text": "Adam's Aviansie's completed tile 22: Complete the Fortis Colosseum (Adam)"
+    },
+    {
+      "at": "2026-09-26T12:05:00.000Z",
+      "teamId": "team-muibzd8j354pt",
+      "type": "complete",
+      "tileIndex": 22,
+      "text": "Adam's Aviansie's completed tile 23: Gain 4.25M Ranged XP (Adam)"
+    },
+    {
+      "at": "2026-09-26T12:05:00.000Z",
+      "teamId": "team-muibzot68dosp",
+      "type": "complete",
+      "tileIndex": 15,
+      "text": "Kiro's Kool Klub completed tile 16: Any Araxxor unique (Kiro)"
+    },
+    {
+      "at": "2026-09-26T12:05:00.000Z",
+      "teamId": "team-muibzot68dosp",
+      "type": "complete",
+      "tileIndex": 16,
+      "text": "Kiro's Kool Klub completed tile 17: Complete 19 Chambers of Xeric raids (Kiro)"
+    },
+    {
+      "at": "2026-09-26T12:05:00.000Z",
+      "teamId": "team-muibzot68dosp",
+      "type": "complete",
+      "tileIndex": 17,
+      "text": "Kiro's Kool Klub completed tile 18: Complete 8 Master clue scrolls (Kiro)"
+    },
+    {
+      "at": "2026-09-26T12:05:00.000Z",
+      "teamId": "team-muibzot68dosp",
+      "type": "complete",
+      "tileIndex": 18,
+      "text": "Kiro's Kool Klub completed tile 19: Gain 4.5M Magic XP (Kiro)"
+    },
+    {
+      "at": "2026-09-26T12:05:00.000Z",
+      "teamId": "team-muibzot68dosp",
+      "type": "complete",
+      "tileIndex": 19,
+      "text": "Kiro's Kool Klub completed tile 20: Imbued heart or Eternal gem (Kiro)"
+    },
+    {
+      "at": "2026-09-26T12:05:00.000Z",
+      "teamId": "team-muibzot68dosp",
+      "type": "complete",
+      "tileIndex": 20,
+      "text": "Kiro's Kool Klub completed tile 21: Get 60 Nex kills (Kiro)"
+    },
+    {
+      "at": "2026-09-26T12:05:00.000Z",
+      "teamId": "team-muibz6k40ktic",
+      "type": "complete",
+      "tileIndex": 0,
+      "text": "Donny's Demons completed tile 1: Full Barbarian Assault run (Donny)"
+    },
+    {
+      "at": "2026-09-26T12:05:00.000Z",
+      "teamId": "team-muibz6k40ktic",
+      "type": "complete",
+      "tileIndex": 1,
+      "text": "Donny's Demons completed tile 2: Any Moons of Peril armour or weapon (Donny)"
+    },
+    {
+      "at": "2026-09-26T12:05:00.000Z",
+      "teamId": "team-muibz6k40ktic",
+      "type": "complete",
+      "tileIndex": 2,
+      "text": "Donny's Demons completed tile 3: 5 bird nests (Donny)"
+    },
+    {
+      "at": "2026-09-26T12:05:00.000Z",
+      "teamId": "team-muibz6k40ktic",
+      "type": "complete",
+      "tileIndex": 3,
+      "text": "Donny's Demons completed tile 4: Get 180 Sarachnis kills (Donny)"
+    },
+    {
+      "at": "2026-09-26T12:05:00.000Z",
+      "teamId": "team-muibz6k40ktic",
+      "type": "complete",
+      "tileIndex": 4,
+      "text": "Donny's Demons completed tile 5: Gain 2.25M Cooking XP (Donny)"
+    },
+    {
+      "at": "2026-09-26T12:05:00.000Z",
+      "teamId": "team-muibz6k40ktic",
+      "type": "complete",
+      "tileIndex": 5,
+      "text": "Donny's Demons completed tile 6: Complete 15 Medium clue scrolls (Donny)"
+    },
+    {
+      "at": "2026-09-26T12:05:00.000Z",
+      "teamId": "team-muibz6k40ktic",
+      "type": "complete",
+      "tileIndex": 6,
+      "text": "Donny's Demons completed tile 7: 3 different Barrows items (Donny)"
+    },
+    {
+      "at": "2026-09-26T12:05:00.000Z",
+      "teamId": "team-muibz6k40ktic",
+      "type": "complete",
+      "tileIndex": 7,
+      "text": "Donny's Demons completed tile 8: Full Pyromancer outfit (Donny)"
+    },
+    {
+      "at": "2026-09-26T12:05:00.000Z",
+      "teamId": "team-muibz6k40ktic",
+      "type": "complete",
+      "tileIndex": 8,
+      "text": "Donny's Demons completed tile 9: Full Prospector kit (Donny)"
+    },
+    {
+      "at": "2026-09-26T12:05:00.000Z",
+      "teamId": "team-muibz6k40ktic",
+      "type": "complete",
+      "tileIndex": 9,
+      "text": "Donny's Demons completed tile 10: Complete the Fight Caves 8 times (Donny)"
+    },
+    {
+      "at": "2026-09-26T12:05:00.000Z",
+      "teamId": "team-muibz6k40ktic",
+      "type": "complete",
+      "tileIndex": 10,
+      "text": "Donny's Demons completed tile 11: Gain 1M Mining XP (Donny)"
+    },
+    {
+      "at": "2026-09-26T12:05:00.000Z",
+      "teamId": "team-muibz6k40ktic",
+      "type": "complete",
+      "tileIndex": 11,
+      "text": "Donny's Demons completed tile 12: Basilisk jaw (Donny)"
+    },
+    {
+      "at": "2026-09-26T12:05:00.000Z",
+      "teamId": "team-muibz6k40ktic",
+      "type": "complete",
+      "tileIndex": 12,
+      "text": "Donny's Demons completed tile 13: Complete 11 Elite clue scrolls (Donny)"
+    },
+    {
+      "at": "2026-09-26T12:04:00.000Z",
+      "teamId": "team-muibzd8j354pt",
+      "type": "complete",
+      "tileIndex": 1,
+      "text": "Adam's Aviansie's completed tile 2: Any Moons of Peril armour or weapon (Adam)"
+    },
+    {
+      "at": "2026-09-26T12:04:00.000Z",
+      "teamId": "team-muibzd8j354pt",
+      "type": "complete",
+      "tileIndex": 2,
+      "text": "Adam's Aviansie's completed tile 3: 5 bird nests (Adam)"
+    },
+    {
+      "at": "2026-09-26T12:04:00.000Z",
+      "teamId": "team-muibzd8j354pt",
+      "type": "complete",
+      "tileIndex": 3,
+      "text": "Adam's Aviansie's completed tile 4: Get 180 Sarachnis kills (Adam)"
+    },
+    {
+      "at": "2026-09-26T12:04:00.000Z",
+      "teamId": "team-muibzd8j354pt",
+      "type": "complete",
+      "tileIndex": 4,
+      "text": "Adam's Aviansie's completed tile 5: Gain 2.25M Cooking XP (Adam)"
+    },
+    {
+      "at": "2026-09-26T12:04:00.000Z",
+      "teamId": "team-muibzd8j354pt",
+      "type": "complete",
+      "tileIndex": 5,
+      "text": "Adam's Aviansie's completed tile 6: Complete 15 Medium clue scrolls (Adam)"
+    },
+    {
+      "at": "2026-09-26T12:04:00.000Z",
+      "teamId": "team-muibzd8j354pt",
+      "type": "complete",
+      "tileIndex": 6,
+      "text": "Adam's Aviansie's completed tile 7: 3 different Barrows items (Adam)"
+    },
+    {
+      "at": "2026-09-26T12:04:00.000Z",
+      "teamId": "team-muibzd8j354pt",
+      "type": "complete",
+      "tileIndex": 7,
+      "text": "Adam's Aviansie's completed tile 8: Full Pyromancer outfit (Adam)"
+    },
+    {
+      "at": "2026-09-26T12:04:00.000Z",
+      "teamId": "team-muibzd8j354pt",
+      "type": "complete",
+      "tileIndex": 8,
+      "text": "Adam's Aviansie's completed tile 9: Full Prospector kit (Adam)"
+    },
+    {
+      "at": "2026-09-26T12:04:00.000Z",
+      "teamId": "team-muibzd8j354pt",
+      "type": "complete",
+      "tileIndex": 9,
+      "text": "Adam's Aviansie's completed tile 10: Complete the Fight Caves 8 times (Adam)"
+    },
+    {
+      "at": "2026-09-26T12:04:00.000Z",
+      "teamId": "team-muibzd8j354pt",
+      "type": "complete",
+      "tileIndex": 10,
+      "text": "Adam's Aviansie's completed tile 11: Gain 1M Mining XP (Adam)"
+    },
+    {
+      "at": "2026-09-26T12:04:00.000Z",
+      "teamId": "team-muibzd8j354pt",
+      "type": "complete",
+      "tileIndex": 11,
+      "text": "Adam's Aviansie's completed tile 12: Basilisk jaw (Adam)"
+    },
+    {
+      "at": "2026-09-26T12:04:00.000Z",
+      "teamId": "team-muibzd8j354pt",
+      "type": "complete",
+      "tileIndex": 12,
+      "text": "Adam's Aviansie's completed tile 13: Complete 11 Elite clue scrolls (Adam)"
+    },
+    {
+      "at": "2026-09-26T12:04:00.000Z",
+      "teamId": "team-muibzd8j354pt",
+      "type": "complete",
+      "tileIndex": 13,
+      "text": "Adam's Aviansie's completed tile 14: Mine 4,500 Stardust (Adam)"
+    },
+    {
+      "at": "2026-09-26T12:04:00.000Z",
+      "teamId": "team-muibzd8j354pt",
+      "type": "complete",
+      "tileIndex": 14,
+      "text": "Adam's Aviansie's completed tile 15: Gain 1.75M Woodcutting XP (Adam)"
+    },
+    {
+      "at": "2026-09-26T12:04:00.000Z",
+      "teamId": "team-muibzd8j354pt",
+      "type": "complete",
+      "tileIndex": 15,
+      "text": "Adam's Aviansie's completed tile 16: Any Araxxor unique (Adam)"
+    },
+    {
+      "at": "2026-09-26T12:04:00.000Z",
+      "teamId": "team-muibzd8j354pt",
+      "type": "complete",
+      "tileIndex": 16,
+      "text": "Adam's Aviansie's completed tile 17: Complete 19 Chambers of Xeric raids (Adam)"
+    },
+    {
+      "at": "2026-09-26T12:04:00.000Z",
+      "teamId": "team-muibzd8j354pt",
+      "type": "complete",
+      "tileIndex": 17,
+      "text": "Adam's Aviansie's completed tile 18: Complete 8 Master clue scrolls (Adam)"
+    },
+    {
+      "at": "2026-09-26T12:04:00.000Z",
+      "teamId": "team-muibzd8j354pt",
+      "type": "complete",
+      "tileIndex": 18,
+      "text": "Adam's Aviansie's completed tile 19: Gain 4.5M Magic XP (Adam)"
+    },
+    {
+      "at": "2026-09-26T12:04:00.000Z",
+      "teamId": "team-muibzot68dosp",
+      "type": "complete",
+      "tileIndex": 0,
+      "text": "Kiro's Kool Klub completed tile 1: Full Barbarian Assault run (Kiro)"
+    },
+    {
+      "at": "2026-09-26T12:04:00.000Z",
+      "teamId": "team-muibzot68dosp",
+      "type": "complete",
+      "tileIndex": 1,
+      "text": "Kiro's Kool Klub completed tile 2: Any Moons of Peril armour or weapon (Kiro)"
+    },
+    {
+      "at": "2026-09-26T12:04:00.000Z",
+      "teamId": "team-muibzot68dosp",
+      "type": "complete",
+      "tileIndex": 2,
+      "text": "Kiro's Kool Klub completed tile 3: 5 bird nests (Kiro)"
+    },
+    {
+      "at": "2026-09-26T12:04:00.000Z",
+      "teamId": "team-muibzot68dosp",
+      "type": "complete",
+      "tileIndex": 3,
+      "text": "Kiro's Kool Klub completed tile 4: Get 180 Sarachnis kills (Kiro)"
+    },
+    {
+      "at": "2026-09-26T12:04:00.000Z",
+      "teamId": "team-muibzot68dosp",
+      "type": "complete",
+      "tileIndex": 4,
+      "text": "Kiro's Kool Klub completed tile 5: Gain 2.25M Cooking XP (Kiro)"
+    },
+    {
+      "at": "2026-09-26T12:04:00.000Z",
+      "teamId": "team-muibzot68dosp",
+      "type": "complete",
+      "tileIndex": 5,
+      "text": "Kiro's Kool Klub completed tile 6: Complete 15 Medium clue scrolls (Kiro)"
+    },
+    {
+      "at": "2026-09-26T12:04:00.000Z",
+      "teamId": "team-muibzot68dosp",
+      "type": "complete",
+      "tileIndex": 6,
+      "text": "Kiro's Kool Klub completed tile 7: 3 different Barrows items (Kiro)"
+    },
+    {
+      "at": "2026-09-26T12:04:00.000Z",
+      "teamId": "team-muibzot68dosp",
+      "type": "complete",
+      "tileIndex": 7,
+      "text": "Kiro's Kool Klub completed tile 8: Full Pyromancer outfit (Kiro)"
+    },
+    {
+      "at": "2026-09-26T12:04:00.000Z",
+      "teamId": "team-muibzot68dosp",
+      "type": "complete",
+      "tileIndex": 8,
+      "text": "Kiro's Kool Klub completed tile 9: Full Prospector kit (Kiro)"
+    },
+    {
+      "at": "2026-09-26T12:03:00.000Z",
+      "teamId": "team-muibzd8j354pt",
+      "type": "complete",
+      "tileIndex": 0,
+      "text": "Adam's Aviansie's completed tile 1: Full Barbarian Assault run (Adam)"
+    }
+  ]
 }
