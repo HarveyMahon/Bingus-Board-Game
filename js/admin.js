@@ -57,7 +57,9 @@
         tiles: 25, teamSize: 5, days: 14, hoursPerDay: 2.5, ironmen: true,
         categories: B.CATEGORIES.map((c) => c.id), fill: 85, ramp: 8,
       },
-      prefs: { showIcons: false, repo: 'HarveyMahon/Bingus-Board-Game', branch: 'main' },
+      prefs: { showIcons: false, repo: 'HarveyMahon/Bingus-Board-Game', branch: 'main', autoPublish: false },
+      lastPublished: null, // { sig, at, commitUrl } — what's on GitHub, so we can show "unpublished changes"
+      pendingLabels: [], // change descriptions since the last publish (used for the commit message)
       updatedAt: null,
     };
   }
@@ -89,6 +91,13 @@
   const libQ = { q: '', cat: '', tier: '', iron: false, showHidden: false };
   let showAllActivity = false;
 
+  // GitHub publishing state (the token is stored separately from the workspace so it is
+  // never included in exported backups).
+  let ghBusy = false;
+  let ghLive = null; // { state: 'waiting'|'live'|'timeout', since } after a publish
+  let autoTimer = null;
+  let autoAt = 0;
+
   function save() {
     ws.updatedAt = new Date().toISOString();
     saveFailed = !B.store.set('workspace', ws);
@@ -98,10 +107,15 @@
   /** Apply a change with undo support. Return false from fn to cancel. */
   function mutate(label, fn, opts) {
     const snap = JSON.stringify(ws);
+    const sigBefore = publicSignature();
     const res = fn();
     if (res === false) return false;
     undoStack.push({ label, snap });
     if (undoStack.length > 100) undoStack.shift();
+    if (publicSignature() !== sigBefore) {
+      ws.pendingLabels = (ws.pendingLabels || []).concat(label).slice(-20);
+      schedulePublish();
+    }
     save();
     if (!opts || opts.render !== false) render();
     return true;
@@ -112,6 +126,7 @@
     if (!u) return;
     ws = migrate(JSON.parse(u.snap));
     save();
+    if (isDirty()) schedulePublish();
     render();
     toast('Undone: ' + u.label);
   }
@@ -365,6 +380,173 @@
     const u = undoStack[undoStack.length - 1];
     $('undo').disabled = !u;
     $('undo').textContent = u ? `Undo: ${u.label.length > 28 ? u.label.slice(0, 27) + '…' : u.label}` : 'Undo';
+    renderPublishStatus();
+  }
+
+  // ---------------------------------------------------------------------------
+  // One-click publishing via the GitHub API.
+  // Uses a fine-grained personal access token limited to this repo (Contents: read & write),
+  // stored only in this browser under "bingus.ghToken". It is never published or exported.
+  // ---------------------------------------------------------------------------
+  const ghToken = () => B.store.get('ghToken', '') || '';
+  const repoName = () => (ws.prefs.repo || '').trim();
+  const branchName = () => (ws.prefs.branch || '').trim() || 'main';
+
+  function hashStr(str) {
+    let h = 0x811c9dc5;
+    for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 0x01000193); }
+    return (h >>> 0).toString(16);
+  }
+  /** Fingerprint of what would be published (ignoring the timestamp). */
+  function publicSignature() {
+    const p = buildPublic();
+    delete p.lastUpdated;
+    return hashStr(JSON.stringify(p));
+  }
+  const isDirty = () => !ws.lastPublished || ws.lastPublished.sig !== publicSignature();
+
+  function toBase64Utf8(str) {
+    const bytes = new TextEncoder().encode(str);
+    let bin = '';
+    for (let i = 0; i < bytes.length; i += 0x8000) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
+    return btoa(bin);
+  }
+
+  async function ghApi(path, opts) {
+    const token = ghToken();
+    if (!token) throw new Error('Not connected to GitHub');
+    const res = await fetch('https://api.github.com' + path, Object.assign({ cache: 'no-store' }, opts || {}, {
+      headers: Object.assign({
+        Accept: 'application/vnd.github+json',
+        Authorization: 'Bearer ' + token,
+        'X-GitHub-Api-Version': '2022-11-28',
+      }, opts && opts.body ? { 'Content-Type': 'application/json' } : {}),
+    }));
+    let data = null;
+    try { data = await res.json(); } catch (e) { /* empty body */ }
+    if (!res.ok) {
+      const err = new Error((data && data.message) || ('HTTP ' + res.status));
+      err.status = res.status;
+      throw err;
+    }
+    return data;
+  }
+
+  function ghErrorText(e) {
+    if (e.status === 401) return 'GitHub rejected the token (expired or mistyped). Reconnect on the Publish tab.';
+    if (e.status === 403) return 'The token isn\u2019t allowed to write to this repo. It needs Contents: Read and write.';
+    if (e.status === 404) return `Repo ${repoName()} (branch ${branchName()}) not found, or the token can\u2019t see it.`;
+    return e.message || String(e);
+  }
+
+  async function ghConnect(token) {
+    const prev = ghToken();
+    B.store.set('ghToken', token);
+    try {
+      const repo = await ghApi(`/repos/${repoName()}`);
+      if (repo.permissions && repo.permissions.push === false) throw Object.assign(new Error('no push'), { status: 403 });
+      toast(`Connected to ${repo.full_name}`);
+      return true;
+    } catch (e) {
+      if (prev) B.store.set('ghToken', prev); else B.store.remove('ghToken');
+      toast(ghErrorText(e));
+      return false;
+    }
+  }
+
+  function commitMessage() {
+    const labels = [...new Set(ws.pendingLabels || [])];
+    if (!labels.length) return 'Update event.json';
+    const first = `Update event.json: ${labels[labels.length - 1]}${labels.length > 1 ? ` (+${labels.length - 1} more)` : ''}`;
+    return (first.length > 72 ? first.slice(0, 71) + '\u2026' : first) + '\n\n' + labels.map((l) => '- ' + l).join('\n');
+  }
+
+  async function publishNow() {
+    if (ghBusy) return;
+    if (!ghToken()) { tab = 'publish'; B.store.set('adminTab', tab); render(); toast('Connect GitHub first (one-time setup)'); return; }
+    clearTimeout(autoTimer); autoTimer = null; autoAt = 0;
+    ghBusy = true;
+    renderPublishStatus();
+    const payload = buildPublic();
+    const sig = publicSignature();
+    const content = JSON.stringify(payload, null, 2) + '\n';
+    const path = `/repos/${repoName()}/contents/data/event.json`;
+    const put = async () => {
+      let sha;
+      try {
+        const cur = await ghApi(`${path}?ref=${encodeURIComponent(branchName())}`);
+        sha = cur.sha;
+      } catch (e) { if (e.status !== 404) throw e; }
+      return ghApi(path, { method: 'PUT', body: JSON.stringify({ message: commitMessage(), content: toBase64Utf8(content), branch: branchName(), sha }) });
+    };
+    try {
+      let res;
+      try { res = await put(); } catch (e) {
+        if (e.status === 409 || e.status === 422) res = await put(); else throw e; // file changed underneath us — retry once
+      }
+      ws.lastPublished = { sig, at: payload.lastUpdated, commitUrl: res && res.commit ? res.commit.html_url : null };
+      ws.pendingLabels = [];
+      save();
+      toast('Published \u2014 the site updates in about a minute');
+      watchLive(payload.lastUpdated);
+    } catch (e) {
+      toast('Publish failed: ' + ghErrorText(e));
+    } finally {
+      ghBusy = false;
+      renderPublishStatus();
+      if (tab === 'publish') render();
+    }
+  }
+
+  /** After a publish, poll the site's own event.json until the new version is being served. */
+  async function watchLive(lastUpdated) {
+    const onPages = /github\.io$/i.test(location.hostname);
+    if (!onPages) { ghLive = null; return; }
+    const started = Date.now();
+    ghLive = { state: 'waiting', since: started, target: lastUpdated };
+    renderPublishStatus();
+    const check = async () => {
+      if (!ghLive || ghLive.target !== lastUpdated) return; // a newer publish took over
+      try {
+        const r = await fetch('data/event.json?v=' + Date.now(), { cache: 'no-store' });
+        const d = await r.json();
+        if (d.lastUpdated === lastUpdated) { ghLive = { state: 'live', since: Date.now(), target: lastUpdated }; renderPublishStatus(); return; }
+      } catch (e) { /* keep waiting */ }
+      if (Date.now() - started > 5 * 60 * 1000) { ghLive = { state: 'timeout', since: Date.now(), target: lastUpdated }; renderPublishStatus(); return; }
+      renderPublishStatus();
+      setTimeout(check, 10000);
+    };
+    setTimeout(check, 15000);
+  }
+
+  const AUTO_DELAY = 20000;
+  function schedulePublish() {
+    if (!ws.prefs.autoPublish || !ghToken()) return;
+    clearTimeout(autoTimer);
+    autoAt = Date.now() + AUTO_DELAY;
+    autoTimer = setTimeout(() => {
+      autoTimer = null; autoAt = 0;
+      if (isDirty()) publishNow();
+    }, AUTO_DELAY);
+  }
+
+  function renderPublishStatus() {
+    const el = $('publish-status');
+    const btn = $('publish-now');
+    if (!el || !btn) return;
+    const dirty = isDirty();
+    let s = '';
+    if (ghBusy) s = '<span class="muted">Publishing\u2026</span>';
+    else if (dirty && autoAt) s = `<span style="color:var(--accent)">\u25CF Unpublished changes \u2014 auto-publishing in ${Math.max(0, Math.ceil((autoAt - Date.now()) / 1000))}s</span>`;
+    else if (dirty && !ws.lastPublished) s = '<span class="muted">Not published from this browser yet</span>';
+    else if (dirty) s = '<span style="color:var(--accent)">\u25CF Unpublished changes</span>';
+    else if (ghLive && ghLive.state === 'waiting') s = `<span class="muted">Published \u00b7 waiting for GitHub Pages (${Math.round((Date.now() - ghLive.since) / 1000)}s)\u2026</span>`;
+    else if (ghLive && ghLive.state === 'live') s = '<span class="status-ok">\u2714 Live on the site</span>';
+    else if (ghLive && ghLive.state === 'timeout') s = '<span class="muted">Published \u00b7 GitHub Pages is slow \u2014 check the Actions tab</span>';
+    else if (ws.lastPublished) s = `<span class="status-ok">\u2714 Published ${esc(B.fmtAgo(ws.lastPublished.at))}</span>`;
+    el.innerHTML = s;
+    btn.disabled = ghBusy || (!dirty && !!ghToken());
+    btn.textContent = ghToken() ? (ghBusy ? 'Publishing\u2026' : 'Publish now') : 'Set up publishing';
   }
 
   function renderBanners() {
@@ -931,13 +1113,48 @@
     const uploadUrl = `https://github.com/${repo}/upload/${branch}/data`;
     const editUrl = `https://github.com/${repo}/edit/${branch}/data/event.json`;
     const actionsUrl = `https://github.com/${repo}/actions`;
+    const connected = !!ghToken();
+    const dirty = isDirty();
+    const tokenUrl = 'https://github.com/settings/personal-access-tokens/new';
+    const lp = ws.lastPublished;
+    const ghCard = connected
+      ? `<div class="stack">
+          <div class="row">
+            <button class="btn primary" type="button" data-action="publish-now" ${ghBusy || !dirty ? 'disabled' : ''}>${ghBusy ? 'Publishing\u2026' : '\u2B06 Publish now'}</button>
+            <span>${dirty ? '<span style="color:var(--accent)">\u25CF You have unpublished changes</span>' : '<span class="status-ok">\u2714 The site is up to date with your workspace</span>'}</span>
+          </div>
+          ${lp ? `<div class="muted" style="font-size:.88rem">Last published ${esc(B.fmtDate(lp.at, tz()))}${lp.commitUrl ? ` \u00b7 <a href="${esc(lp.commitUrl)}" target="_blank" rel="noopener">view commit</a>` : ''}</div>` : ''}
+          <label class="check"><input type="checkbox" data-action="auto-publish"${ws.prefs.autoPublish ? ' checked' : ''}> Publish automatically ${AUTO_DELAY / 1000} seconds after my last change</label>
+          <div class="row"><span class="muted" style="font-size:.85rem">Connected to <strong>${esc(repoName())}</strong> (${esc(branchName())}). The token is stored only in this browser and is never included in backups.</span>
+            <span style="flex:1"></span><button class="btn small ghost" type="button" data-action="gh-forget">Disconnect</button></div>
+        </div>`
+      : `<div class="stack">
+          <p style="margin:0">Connect once and the admin page commits <code>data/event.json</code> for you \u2014 no downloading, uploading or pasting.</p>
+          <ol class="steps">
+            <li>Open <a href="${esc(tokenUrl)}" target="_blank" rel="noopener">GitHub \u203a New fine-grained token</a> (signed in as the repo owner).</li>
+            <li>Name it e.g. <em>Bingus publisher</em> and set an expiry that covers the event.</li>
+            <li><strong>Repository access:</strong> Only select repositories \u2192 <strong>${esc(repoName().split('/')[1] || repoName())}</strong>.</li>
+            <li><strong>Permissions \u2192 Repository permissions \u2192 Contents:</strong> Read and write. Nothing else is needed.</li>
+            <li>Generate the token, copy it and paste it here.</li>
+          </ol>
+          <div class="row"><input type="password" id="gh-token" placeholder="github_pat_\u2026" autocomplete="off" style="flex:1;min-width:220px"><button class="btn primary" type="button" data-action="gh-connect">Connect</button></div>
+          <p class="muted" style="margin:0;font-size:.85rem">The token stays in this browser\u2019s storage only and can only change this one repo\u2019s files. Anyone who can use this browser profile could publish with it, so disconnect on shared computers. You can revoke it on GitHub at any time.</p>
+        </div>`;
     return `<div class="card stack">
         <h2>Publish</h2>
         <label class="check"><input type="checkbox" data-action="live-toggle"${ws.live ? ' checked' : ''}> <strong>Board is live</strong> — publish revealed tiles and the keyword</label>
         <ul class="warns">${checks().map(([lvl, msg]) => `<li class="warn ${lvl === 'bad' ? 'bad' : lvl === 'good' ? 'good' : ''}">${esc(msg)}</li>`).join('')}</ul>
+        <h3>One-click publishing</h3>
+        ${ghCard}
         <div class="row">
           <button class="btn" type="button" data-action="preview">Preview public site</button>
-          <button class="btn primary" type="button" data-action="download">⬇ Download event.json</button>
+        </div>
+      </div>
+      <div class="card stack">
+        <h2>Manual publishing</h2>
+        <p class="muted" style="margin:0">Use this if you haven\u2019t connected GitHub, or from a computer where you don\u2019t want to store a token.</p>
+        <div class="row">
+          <button class="btn" type="button" data-action="download">⬇ Download event.json</button>
           <button class="btn" type="button" data-action="copy">Copy JSON</button>
           <span class="muted" style="font-size:.85rem">${(json.length / 1024).toFixed(1)} KB</span>
         </div>
@@ -1133,6 +1350,26 @@
       mutate(el.checked ? 'Set board live' : 'Set board not live', () => { ws.live = el.checked; });
     },
     preview: () => preview(),
+    'publish-now': () => publishNow(),
+    'gh-connect': async () => {
+      const input = $('gh-token');
+      const token = input ? input.value.trim() : '';
+      if (!token) { toast('Paste the token first'); return; }
+      if (await ghConnect(token)) render();
+    },
+    'gh-forget': () => {
+      if (!confirm('Disconnect GitHub? The token is removed from this browser (revoke it on GitHub too if you no longer need it).')) return;
+      B.store.remove('ghToken');
+      clearTimeout(autoTimer); autoTimer = null; autoAt = 0;
+      render();
+    },
+    'auto-publish': (el) => {
+      ws.prefs.autoPublish = el.checked;
+      save();
+      if (el.checked && isDirty()) schedulePublish();
+      if (!el.checked) { clearTimeout(autoTimer); autoTimer = null; autoAt = 0; }
+      renderPublishStatus();
+    },
     download: () => { download('event.json', JSON.stringify(buildPublic(), null, 2) + '\n'); toast('event.json downloaded — now commit it to /data'); },
     copy: async () => { toast((await copyText(JSON.stringify(buildPublic(), null, 2) + '\n')) ? 'JSON copied' : 'Copy failed — use Download instead'); },
     export: () => {
@@ -1211,6 +1448,7 @@
   });
 
   $('undo').addEventListener('click', undo);
+  $('publish-now').addEventListener('click', () => publishNow());
 
   const sharedPrefs = () => Object.assign({ theme: 'dark' }, B.store.get('prefs', {}));
   function syncThemeButton() { $('theme').textContent = sharedPrefs().theme === 'light' ? 'Dark mode' : 'Light mode'; }
@@ -1224,9 +1462,10 @@
   syncThemeButton();
 
   window.addEventListener('beforeunload', (e) => {
-    if ((!STORAGE_OK || saveFailed) && undoStack.length) { e.preventDefault(); e.returnValue = ''; }
+    if (((!STORAGE_OK || saveFailed) && undoStack.length) || (ghToken() && isDirty() && ws.lastPublished)) { e.preventDefault(); e.returnValue = ''; }
   });
 
   setInterval(renderStatus, 30000);
+  setInterval(() => { if (autoAt || ghLive) renderPublishStatus(); }, 1000);
   render();
 })();

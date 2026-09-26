@@ -24,7 +24,7 @@ icons/              optional self-hosted icons (see below)
 
 ## OSRS Wiki usage (no API calls)
 
-The site **never calls the OSRS Wiki API**. The only network request it makes to load data is for its own `data/event.json`.
+The site **never calls the OSRS Wiki API**. The only network request it makes to load data is for its own `data/event.json`. (The admin page also talks to the GitHub API, but only if you set up one-click publishing.)
 
 Item icons are plain `<img>` tags pointing at the Wiki's static image path (for example `https://oldschool.runescape.wiki/images/Dragon_pickaxe.png`). They load lazily and only for tiles on screen. Visitors' browsers cache them, and only revealed tiles (usually about 10–25 images) are ever shown. An icon name that doesn't match a Wiki file is simply hidden.
 
@@ -82,7 +82,7 @@ Each later commit to `data/event.json` redeploys automatically in about a minute
    - **Partial progress:** set the official count (or tick the specific items) and *Save progress*. This can post to the activity feed.
    - **Complete tile:** choose who got it and set **Completed at** to the time of the submission (not when you verified it, because ties are decided by time), then *Mark complete*. The team moves to its next tile.
    - Mistakes: use **Undo** (Ctrl+Z), **Revert last completion**, or **Set tile…** for manual corrections.
-3. Publish. It's fine to batch several updates into one publish.
+3. Publish: press **Publish now** in the top bar, or let auto-publish do it. It's fine to batch several updates into one publish.
 
 ### 4. Revealing tiles
 
@@ -98,7 +98,18 @@ Publish the final state. The leaderboard ranks teams by:
 
 ### Publishing
 
-On **Publish & backup** you have two options:
+**One-click (recommended).** Connect the admin page to GitHub once and it commits `data/event.json` for you:
+
+1. On GitHub, create a [fine-grained personal access token](https://github.com/settings/personal-access-tokens/new):
+   - **Repository access:** Only select repositories → *Bingus-Board-Game*.
+   - **Repository permissions → Contents:** Read and write. Nothing else is needed.
+   - Set an expiry that covers the event.
+2. In the admin page, go to **Publish & backup → One-click publishing**, paste the token and press **Connect**.
+3. From then on, the top bar shows **● Unpublished changes** and a **Publish now** button. Optionally tick **Publish automatically** to publish 20 seconds after your last change, so marking a tile complete is all you need to do. When the admin page is opened from GitHub Pages, it watches for the new version and shows **✔ Live on the site** once it's being served (usually about a minute).
+
+The token is stored only in that browser (`bingus.ghToken`). It is never published, and never included in workspace backups. It can only change this one repo's files, and you can revoke it on GitHub at any time. Press **Disconnect** on shared computers.
+
+**Manual publishing** still works without a token. On **Publish & backup** you have two options:
 
 - **Upload:** click *Download event.json*, open the upload link shown (`github.com/<repo>/upload/main/data`), drag the file in and click **Commit changes**. It replaces the old file.
 - **Paste:** click *Copy JSON*, open the web-editor link (`github.com/<repo>/edit/main/data/event.json`), select all, paste and click **Commit changes**.
@@ -121,6 +132,7 @@ All access goes through a try/catch wrapper, and the site works without storage 
 | `bingus.check.<team>.<tile>` | public | a player's private, unofficial checklist for their team's current tile |
 | `bingus.workspace` | admin | the whole admin workspace |
 | `bingus.adminTab`, `bingus.preview` | admin | last open tab, draft data for preview |
+| `bingus.ghToken` | admin | GitHub token for one-click publishing (optional; never exported) |
 
 ## `data/event.json` schema
 

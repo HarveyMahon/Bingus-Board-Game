@@ -25,18 +25,38 @@
   // Loading
   // ---------------------------------------------------------------------------
   let lastLoad = 0;
-  async function load() {
+  let checkNote = ''; // feedback shown after a manual refresh
+  async function load(manual) {
     if (PREVIEW) return;
     lastLoad = Date.now();
+    const before = data && data.lastUpdated;
+    const btn = $('refresh');
+    if (manual) { btn.disabled = true; btn.textContent = 'Checking\u2026'; }
     try {
       const res = await fetch('data/event.json?v=' + Date.now(), { cache: 'no-store' });
       if (!res.ok) throw new Error('HTTP ' + res.status);
       data = normalise(await res.json());
       loadError = null;
+      if (manual) checkNote = before && before === data.lastUpdated ? 'No new updates' : 'Updated!';
     } catch (e) {
       loadError = e;
+      if (manual) checkNote = 'Couldn\u2019t check for updates';
+    }
+    if (manual) {
+      btn.disabled = false;
+      btn.textContent = 'Refresh';
+      clearTimeout(load._t);
+      load._t = setTimeout(() => { checkNote = ''; renderUpdated(); }, 6000);
     }
     render();
+  }
+
+  function renderUpdated() {
+    const el = $('updated');
+    if (!data) { el.textContent = checkNote; return; }
+    const upd = data.lastUpdated ? `Updated ${B.fmtAgo(data.lastUpdated)}` : '';
+    el.innerHTML = checkNote ? `<strong>${esc(checkNote)}</strong> \u00b7 ${esc(upd)}` : esc(upd);
+    el.title = data.lastUpdated ? `Last published ${B.fmtDate(data.lastUpdated, tz())}` : '';
   }
 
   function normalise(d) {
@@ -126,8 +146,7 @@
     $('ev-desc').textContent = ev.description || '';
     renderFollow();
     renderHeaderStatus();
-    $('updated').textContent = data.lastUpdated ? `Updated ${B.fmtAgo(data.lastUpdated)}` : '';
-    $('updated').title = data.lastUpdated ? `Last published ${B.fmtDate(data.lastUpdated, tz())}` : '';
+    renderUpdated();
     $('theme').textContent = prefs.theme === 'light' ? 'Dark mode' : 'Light mode';
 
     const followed = teamById(prefs.followTeam);
@@ -483,7 +502,7 @@
   });
   $('refresh').addEventListener('click', () => {
     if (PREVIEW) { render(); return; }
-    load();
+    load(true);
   });
 
   setInterval(tick, 1000);
